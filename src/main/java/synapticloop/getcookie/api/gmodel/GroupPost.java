@@ -9,6 +9,9 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
+import synapticloop.getcookie.api.model.GroupData;
+
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
@@ -21,7 +24,7 @@ public class GroupPost {
     @JsonProperty("meta")
     private Meta meta;
     @JsonProperty("data")
-    private Data data;
+    private GroupData data;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
@@ -36,12 +39,12 @@ public class GroupPost {
     }
 
     @JsonProperty("data")
-    public Data getData() {
+    public GroupData getData() {
         return data;
     }
 
     @JsonProperty("data")
-    public void setData(Data data) {
+    public void setData(GroupData data) {
         this.data = data;
     }
 

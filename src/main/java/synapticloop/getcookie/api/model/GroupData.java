@@ -1,5 +1,5 @@
 
-package synapticloop.getcookie.api.gmodel;
+package synapticloop.getcookie.api.model;
 
 import java.util.HashMap;
 import java.util.List;
@@ -10,13 +10,16 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+
+import synapticloop.getcookie.api.gmodel.Group;
+
 import org.apache.commons.lang3.builder.ToStringBuilder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
     "groups"
 })
-public class Data {
+public class GroupData {
 
     @JsonProperty("groups")
     private List<Group> groups = null;

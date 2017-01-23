@@ -9,7 +9,7 @@ import synapticloop.getcookie.api.exception.GetCookieApiException;
 import synapticloop.getcookie.api.gmodel.ContentPhoto;
 import synapticloop.getcookie.api.gmodel.GroupPost;
 import synapticloop.getcookie.api.gmodel.Post;
-import synapticloop.getcookie.api.gmodel._480wv_;
+import synapticloop.getcookie.api.model._480wv_;
 
 public class GroupPostTest {
 	private GetCookieApiClient getCookieApiClient;

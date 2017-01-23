@@ -3,13 +3,15 @@ package synapticloop.getcookie.api.model;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import org.apache.commons.lang3.builder.ToStringBuilder;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import org.apache.commons.lang3.builder.ToStringBuilder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
@@ -18,17 +20,17 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
 public class Avatar {
 
     @JsonProperty("thumbnails")
-    private Thumbnails thumbnails;
+    private Thumbnails___ thumbnails;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
     @JsonProperty("thumbnails")
-    public Thumbnails getThumbnails() {
+    public Thumbnails___ getThumbnails() {
         return thumbnails;
     }
 
     @JsonProperty("thumbnails")
-    public void setThumbnails(Thumbnails thumbnails) {
+    public void setThumbnails(Thumbnails___ thumbnails) {
         this.thumbnails = thumbnails;
     }
 
