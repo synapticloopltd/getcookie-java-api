@@ -1,5 +1,21 @@
 package synapticloop.getcookie.api.model;
 
+/*
+ * Copyright (c) 2017 Synapticloop.
+ * 
+ * All rights reserved.
+ * 
+ * This code may contain contributions from other parties which, where 
+ * applicable, will be listed in the default build file for the project 
+ * ~and/or~ in a file named CONTRIBUTORS.txt in the root of the project.
+ * 
+ * This source code and any derived binaries are covered by the terms and 
+ * conditions of the Licence agreement ("the Licence").  You may not use this 
+ * source code or any derived binaries except in compliance with the Licence.  
+ * A copy of the Licence is available in the file named LICENSE.txt shipped with 
+ * this source code or binaries.
+ */
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -30,55 +46,15 @@ public class Activity {
 
 	@JsonIgnore private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
-	@JsonProperty("online")
-	public Boolean getOnline() {
-		return online;
-	}
+	public Boolean getOnline() { return online; }
 
-	@JsonProperty("online")
-	public void setOnline(Boolean online) {
-		this.online = online;
-	}
+	public Integer getLastOnlineTime() { return lastOnlineTime; }
 
-	@JsonProperty("last_online_time")
-	public Integer getLastOnlineTime() {
-		return lastOnlineTime;
-	}
+	public String getCurrentCountry() { return currentCountry; }
 
-	@JsonProperty("last_online_time")
-	public void setLastOnlineTime(Integer lastOnlineTime) {
-		this.lastOnlineTime = lastOnlineTime;
-	}
+	public Object getLatitude() { return latitude; }
 
-	@JsonProperty("current_country")
-	public String getCurrentCountry() {
-		return currentCountry;
-	}
-
-	@JsonProperty("current_country")
-	public void setCurrentCountry(String currentCountry) {
-		this.currentCountry = currentCountry;
-	}
-
-	@JsonProperty("latitude")
-	public Object getLatitude() {
-		return latitude;
-	}
-
-	@JsonProperty("latitude")
-	public void setLatitude(Object latitude) {
-		this.latitude = latitude;
-	}
-
-	@JsonProperty("longitude")
-	public Object getLongitude() {
-		return longitude;
-	}
-
-	@JsonProperty("longitude")
-	public void setLongitude(Object longitude) {
-		this.longitude = longitude;
-	}
+	public Object getLongitude() { return longitude; }
 
 	@Override
 	public String toString() {

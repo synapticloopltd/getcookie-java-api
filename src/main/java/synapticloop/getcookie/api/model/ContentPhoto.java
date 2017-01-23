@@ -1,5 +1,21 @@
 package synapticloop.getcookie.api.model;
 
+/*
+ * Copyright (c) 2017 Synapticloop.
+ * 
+ * All rights reserved.
+ * 
+ * This code may contain contributions from other parties which, where 
+ * applicable, will be listed in the default build file for the project 
+ * ~and/or~ in a file named CONTRIBUTORS.txt in the root of the project.
+ * 
+ * This source code and any derived binaries are covered by the terms and 
+ * conditions of the Licence agreement ("the Licence").  You may not use this 
+ * source code or any derived binaries except in compliance with the Licence.  
+ * A copy of the Licence is available in the file named LICENSE.txt shipped with 
+ * this source code or binaries.
+ */
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -27,7 +43,7 @@ public class ContentPhoto {
 	@JsonProperty("id") private String id;
 	@JsonProperty("title") private Object title;
 	@JsonProperty("has_tiles") private Boolean hasTiles;
-	@JsonProperty("tile_thumbnails") private TileThumbnails_ tileThumbnails;
+	@JsonProperty("tile_thumbnails") private TileThumbnails tileThumbnails;
 	@JsonProperty("thumbnails") private Thumbnails thumbnails;
 	@JsonIgnore private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
@@ -72,12 +88,12 @@ public class ContentPhoto {
 	}
 
 	@JsonProperty("tile_thumbnails")
-	public TileThumbnails_ getTileThumbnails() {
+	public TileThumbnails getTileThumbnails() {
 		return tileThumbnails;
 	}
 
 	@JsonProperty("tile_thumbnails")
-	public void setTileThumbnails(TileThumbnails_ tileThumbnails) {
+	public void setTileThumbnails(TileThumbnails tileThumbnails) {
 		this.tileThumbnails = tileThumbnails;
 	}
 
