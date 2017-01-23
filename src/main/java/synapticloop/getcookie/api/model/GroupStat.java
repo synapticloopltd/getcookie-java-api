@@ -1,5 +1,5 @@
 
-package synapticloop.getcookie.api.gmodel;
+package synapticloop.getcookie.api.model;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -20,7 +20,7 @@ import org.apache.commons.lang3.builder.ToStringBuilder;
     "comment_v2",
     "live_post"
 })
-public class Stat {
+public class GroupStat {
 
     @JsonProperty("member")
     private Integer member;

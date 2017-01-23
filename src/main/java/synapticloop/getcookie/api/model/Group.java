@@ -13,8 +13,6 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
-import synapticloop.getcookie.api.gmodel.Stat;
-
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
 	"id",
@@ -51,7 +49,7 @@ public class Group {
 	@JsonProperty("canonical_name") private String canonicalName;
 	@JsonProperty("is_local") private Boolean isLocal;
 	@JsonProperty("created_at") private Integer createdAt;
-	@JsonProperty("stat") private Stat stat;
+	@JsonProperty("stat") private GroupStat stat;
 	@JsonProperty("cover_photo") private CoverPhoto coverPhoto;
 	@JsonProperty("featured") private Boolean featured;
 	@JsonProperty("country") private String country;
@@ -174,12 +172,12 @@ public class Group {
 	}
 
 	@JsonProperty("stat")
-	public Stat getStat() {
+	public GroupStat getStat() {
 		return stat;
 	}
 
 	@JsonProperty("stat")
-	public void setStat(Stat stat) {
+	public void setStat(GroupStat stat) {
 		this.stat = stat;
 	}
 

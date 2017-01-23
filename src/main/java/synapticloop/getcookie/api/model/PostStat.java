@@ -29,7 +29,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 	"create_comment_coin",
 	"total_coin"
 })
-public class Stat {
+public class PostStat {
 
 	@JsonProperty("comment") private Integer comment;
 	@JsonProperty("fb_like") private Integer fbLike;

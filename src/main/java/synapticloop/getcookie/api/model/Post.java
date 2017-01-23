@@ -56,7 +56,7 @@ public class Post {
 	@JsonProperty("latitude") private Object latitude;
 	@JsonProperty("longitude") private Object longitude;
 	@JsonProperty("country") private Object country;
-	@JsonProperty("stat") private Stat stat;
+	@JsonProperty("stat") private PostStat stat;
 	@JsonProperty("cover_photo") private CoverPhoto coverPhoto;
 	@JsonProperty("content_photos") private List<ContentPhoto> contentPhotos = null;
 	@JsonProperty("cover_video") private Object coverVideo;
@@ -201,12 +201,12 @@ public class Post {
 	}
 
 	@JsonProperty("stat")
-	public Stat getStat() {
+	public PostStat getStat() {
 		return stat;
 	}
 
 	@JsonProperty("stat")
-	public void setStat(Stat stat) {
+	public void setStat(PostStat stat) {
 		this.stat = stat;
 	}
 
