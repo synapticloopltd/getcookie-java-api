@@ -6,7 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import synapticloop.getcookie.api.exception.GetCookieApiException;
-import synapticloop.getcookie.api.model.ContentPhoto_;
+import synapticloop.getcookie.api.model.ContentPhoto;
 import synapticloop.getcookie.api.model.Post;
 import synapticloop.getcookie.api.model.Thumbnail;
 import synapticloop.getcookie.api.model.UserPosts;
@@ -26,8 +26,8 @@ public class UserPostTest {
 		List<Post> posts = userPosts.getData().getUsers().get(0).getPosts();
 		for (Post post : posts) {
 			System.out.println(":::" + post.getGroups().get(0).getUrl());
-			List<ContentPhoto_> contentPhotos = post.getContentPhotos();
-			for (ContentPhoto_ contentPhoto : contentPhotos) {
+			List<ContentPhoto> contentPhotos = post.getContentPhotos();
+			for (ContentPhoto contentPhoto : contentPhotos) {
 				System.out.println("wget " + contentPhoto.getThumbnails().get840w().getUrl());
 			}
 		}
@@ -42,8 +42,8 @@ public class UserPostTest {
 			List<Post> postsish = userPosts.getData().getUsers().get(0).getPosts();
 			for (Post post : postsish) {
 				System.out.println(":::" + post.getGroups().get(0).getUrl());
-				List<ContentPhoto_> contentPhotos = post.getContentPhotos();
-				for (ContentPhoto_ contentPhoto : contentPhotos) {
+				List<ContentPhoto> contentPhotos = post.getContentPhotos();
+				for (ContentPhoto contentPhoto : contentPhotos) {
 					Thumbnail get480wv = contentPhoto.getThumbnails().get480wv();
 					if(null != get480wv) {
 						System.out.println("wget " + get480wv.getUrl());

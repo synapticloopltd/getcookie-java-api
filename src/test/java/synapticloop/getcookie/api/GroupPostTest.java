@@ -6,7 +6,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import synapticloop.getcookie.api.exception.GetCookieApiException;
-import synapticloop.getcookie.api.model.ContentPhoto_;
+import synapticloop.getcookie.api.model.ContentPhoto;
 import synapticloop.getcookie.api.model.GroupPost;
 import synapticloop.getcookie.api.model.Post;
 import synapticloop.getcookie.api.model.Thumbnail;
@@ -41,8 +41,8 @@ public class GroupPostTest {
 
 	private void getCorrectPhoto(Post post) {
 		System.out.println(">>" + post.getOwner().getUsername());
-		List<ContentPhoto_> contentPhotos = post.getContentPhotos();
-		for (ContentPhoto_ contentPhoto : contentPhotos) {
+		List<ContentPhoto> contentPhotos = post.getContentPhotos();
+		for (ContentPhoto contentPhoto : contentPhotos) {
 			Thumbnail video = contentPhoto.getThumbnails().get480wv();
 			if(null != video) {
 				System.out.println("wget " + video.getUrl());

@@ -1,4 +1,3 @@
-
 package synapticloop.getcookie.api.model;
 
 import java.util.HashMap;
@@ -15,90 +14,85 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
-    "online",
-    "last_online_time",
-    "current_country",
-    "latitude",
-    "longitude"
+	"online",
+	"last_online_time",
+	"current_country",
+	"latitude",
+	"longitude"
 })
 public class Activity {
 
-    @JsonProperty("online")
-    private Boolean online;
-    @JsonProperty("last_online_time")
-    private Integer lastOnlineTime;
-    @JsonProperty("current_country")
-    private String currentCountry;
-    @JsonProperty("latitude")
-    private Object latitude;
-    @JsonProperty("longitude")
-    private Object longitude;
-    @JsonIgnore
-    private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+	@JsonProperty("online") private Boolean online;
+	@JsonProperty("last_online_time") private Integer lastOnlineTime;
+	@JsonProperty("current_country") private String currentCountry;
+	@JsonProperty("latitude") private Object latitude;
+	@JsonProperty("longitude") private Object longitude;
 
-    @JsonProperty("online")
-    public Boolean getOnline() {
-        return online;
-    }
+	@JsonIgnore private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
-    @JsonProperty("online")
-    public void setOnline(Boolean online) {
-        this.online = online;
-    }
+	@JsonProperty("online")
+	public Boolean getOnline() {
+		return online;
+	}
 
-    @JsonProperty("last_online_time")
-    public Integer getLastOnlineTime() {
-        return lastOnlineTime;
-    }
+	@JsonProperty("online")
+	public void setOnline(Boolean online) {
+		this.online = online;
+	}
 
-    @JsonProperty("last_online_time")
-    public void setLastOnlineTime(Integer lastOnlineTime) {
-        this.lastOnlineTime = lastOnlineTime;
-    }
+	@JsonProperty("last_online_time")
+	public Integer getLastOnlineTime() {
+		return lastOnlineTime;
+	}
 
-    @JsonProperty("current_country")
-    public String getCurrentCountry() {
-        return currentCountry;
-    }
+	@JsonProperty("last_online_time")
+	public void setLastOnlineTime(Integer lastOnlineTime) {
+		this.lastOnlineTime = lastOnlineTime;
+	}
 
-    @JsonProperty("current_country")
-    public void setCurrentCountry(String currentCountry) {
-        this.currentCountry = currentCountry;
-    }
+	@JsonProperty("current_country")
+	public String getCurrentCountry() {
+		return currentCountry;
+	}
 
-    @JsonProperty("latitude")
-    public Object getLatitude() {
-        return latitude;
-    }
+	@JsonProperty("current_country")
+	public void setCurrentCountry(String currentCountry) {
+		this.currentCountry = currentCountry;
+	}
 
-    @JsonProperty("latitude")
-    public void setLatitude(Object latitude) {
-        this.latitude = latitude;
-    }
+	@JsonProperty("latitude")
+	public Object getLatitude() {
+		return latitude;
+	}
 
-    @JsonProperty("longitude")
-    public Object getLongitude() {
-        return longitude;
-    }
+	@JsonProperty("latitude")
+	public void setLatitude(Object latitude) {
+		this.latitude = latitude;
+	}
 
-    @JsonProperty("longitude")
-    public void setLongitude(Object longitude) {
-        this.longitude = longitude;
-    }
+	@JsonProperty("longitude")
+	public Object getLongitude() {
+		return longitude;
+	}
 
-    @Override
-    public String toString() {
-        return ToStringBuilder.reflectionToString(this);
-    }
+	@JsonProperty("longitude")
+	public void setLongitude(Object longitude) {
+		this.longitude = longitude;
+	}
 
-    @JsonAnyGetter
-    public Map<String, Object> getAdditionalProperties() {
-        return this.additionalProperties;
-    }
+	@Override
+	public String toString() {
+		return ToStringBuilder.reflectionToString(this);
+	}
 
-    @JsonAnySetter
-    public void setAdditionalProperty(String name, Object value) {
-        this.additionalProperties.put(name, value);
-    }
+	@JsonAnyGetter
+	public Map<String, Object> getAdditionalProperties() {
+		return this.additionalProperties;
+	}
+
+	@JsonAnySetter
+	public void setAdditionalProperty(String name, Object value) {
+		this.additionalProperties.put(name, value);
+	}
 
 }
