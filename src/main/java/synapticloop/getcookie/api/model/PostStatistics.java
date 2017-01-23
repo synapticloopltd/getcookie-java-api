@@ -61,137 +61,35 @@ public class PostStatistics {
 	@JsonProperty("comment_coin") private Integer commentCoin;
 	@JsonProperty("create_comment_coin") private Integer createCommentCoin;
 	@JsonProperty("total_coin") private Integer totalCoin;
+
 	@JsonIgnore private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
-	@JsonProperty("comment")
-	public Integer getComment() {
-		return comment;
-	}
 
-	@JsonProperty("comment")
-	public void setComment(Integer comment) {
-		this.comment = comment;
-	}
+	public Integer getComment() { return comment; }
 
-	@JsonProperty("fb_like")
-	public Integer getFbLike() {
-		return fbLike;
-	}
+	public Integer getFbLike() { return fbLike; }
 
-	@JsonProperty("fb_like")
-	public void setFbLike(Integer fbLike) {
-		this.fbLike = fbLike;
-	}
+	public Integer getFbShare() { return fbShare; }
 
-	@JsonProperty("fb_share")
-	public Integer getFbShare() {
-		return fbShare;
-	}
+	public Integer getFbComment() { return fbComment; }
 
-	@JsonProperty("fb_share")
-	public void setFbShare(Integer fbShare) {
-		this.fbShare = fbShare;
-	}
+	public Integer getCommentV2() { return commentV2; }
 
-	@JsonProperty("fb_comment")
-	public Integer getFbComment() {
-		return fbComment;
-	}
+	public Integer getUpvote() { return upvote; }
 
-	@JsonProperty("fb_comment")
-	public void setFbComment(Integer fbComment) {
-		this.fbComment = fbComment;
-	}
+	public Integer getDownvote() { return downvote; }
 
-	@JsonProperty("comment_v2")
-	public Integer getCommentV2() {
-		return commentV2;
-	}
+	public Integer getScore() { return score; }
 
-	@JsonProperty("comment_v2")
-	public void setCommentV2(Integer commentV2) {
-		this.commentV2 = commentV2;
-	}
+	public Integer getReport() { return report; }
 
-	@JsonProperty("upvote")
-	public Integer getUpvote() {
-		return upvote;
-	}
+	public Integer getCoin() { return coin; }
 
-	@JsonProperty("upvote")
-	public void setUpvote(Integer upvote) {
-		this.upvote = upvote;
-	}
+	public Integer getCommentCoin() { return commentCoin; }
 
-	@JsonProperty("downvote")
-	public Integer getDownvote() {
-		return downvote;
-	}
+	public Integer getCreateCommentCoin() { return createCommentCoin; }
 
-	@JsonProperty("downvote")
-	public void setDownvote(Integer downvote) {
-		this.downvote = downvote;
-	}
-
-	@JsonProperty("score")
-	public Integer getScore() {
-		return score;
-	}
-
-	@JsonProperty("score")
-	public void setScore(Integer score) {
-		this.score = score;
-	}
-
-	@JsonProperty("report")
-	public Integer getReport() {
-		return report;
-	}
-
-	@JsonProperty("report")
-	public void setReport(Integer report) {
-		this.report = report;
-	}
-
-	@JsonProperty("coin")
-	public Integer getCoin() {
-		return coin;
-	}
-
-	@JsonProperty("coin")
-	public void setCoin(Integer coin) {
-		this.coin = coin;
-	}
-
-	@JsonProperty("comment_coin")
-	public Integer getCommentCoin() {
-		return commentCoin;
-	}
-
-	@JsonProperty("comment_coin")
-	public void setCommentCoin(Integer commentCoin) {
-		this.commentCoin = commentCoin;
-	}
-
-	@JsonProperty("create_comment_coin")
-	public Integer getCreateCommentCoin() {
-		return createCommentCoin;
-	}
-
-	@JsonProperty("create_comment_coin")
-	public void setCreateCommentCoin(Integer createCommentCoin) {
-		this.createCommentCoin = createCommentCoin;
-	}
-
-	@JsonProperty("total_coin")
-	public Integer getTotalCoin() {
-		return totalCoin;
-	}
-
-	@JsonProperty("total_coin")
-	public void setTotalCoin(Integer totalCoin) {
-		this.totalCoin = totalCoin;
-	}
+	public Integer getTotalCoin() { return totalCoin; }
 
 	@Override
 	public String toString() {

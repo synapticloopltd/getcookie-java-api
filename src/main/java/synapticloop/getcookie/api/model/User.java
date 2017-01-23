@@ -82,237 +82,54 @@ public class User {
 	@JsonProperty("next_offset") private Integer nextOffset;
 	@JsonProperty("has_next") private Boolean hasNext;
 	@JsonProperty("posts") private List<Post> posts = null;
+
 	@JsonIgnore private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
-	@JsonProperty("id")
-	public String getId() {
-		return id;
-	}
+	public String getId() { return id; }
 
-	@JsonProperty("id")
-	public void setId(String id) {
-		this.id = id;
-	}
+	public String getUsername() { return username; }
 
-	@JsonProperty("username")
-	public String getUsername() {
-		return username;
-	}
+	public String getFullname() { return fullname; }
 
-	@JsonProperty("username")
-	public void setUsername(String username) {
-		this.username = username;
-	}
+	public Integer getAccountId() { return accountId; }
 
-	@JsonProperty("fullname")
-	public String getFullname() {
-		return fullname;
-	}
+	public Integer getGender() { return gender; }
 
-	@JsonProperty("fullname")
-	public void setFullname(String fullname) {
-		this.fullname = fullname;
-	}
+	public Integer getAge() { return age; }
 
-	@JsonProperty("account_id")
-	public Integer getAccountId() {
-		return accountId;
-	}
+	public String getZodiac() { return zodiac; }
 
-	@JsonProperty("account_id")
-	public void setAccountId(Integer accountId) {
-		this.accountId = accountId;
-	}
+	public String getCountry() { return country; }
 
-	@JsonProperty("gender")
-	public Integer getGender() {
-		return gender;
-	}
+	public String getCountryName() { return countryName; }
 
-	@JsonProperty("gender")
-	public void setGender(Integer gender) {
-		this.gender = gender;
-	}
+	public String getJid() { return jid; }
 
-	@JsonProperty("age")
-	public Integer getAge() {
-		return age;
-	}
+	public Integer getStatus() { return status; }
 
-	@JsonProperty("age")
-	public void setAge(Integer age) {
-		this.age = age;
-	}
+	public String getBio() { return bio; }
 
-	@JsonProperty("zodiac")
-	public String getZodiac() {
-		return zodiac;
-	}
+	public Avatar getAvatar() { return avatar; }
 
-	@JsonProperty("zodiac")
-	public void setZodiac(String zodiac) {
-		this.zodiac = zodiac;
-	}
+	public Object getCoverPhoto() { return coverPhoto; }
 
-	@JsonProperty("country")
-	public String getCountry() {
-		return country;
-	}
+	public List<ContentPhoto> getContentPhotos() { return contentPhotos; }
 
-	@JsonProperty("country")
-	public void setCountry(String country) {
-		this.country = country;
-	}
+	public Activity getActivity() { return activity; }
 
-	@JsonProperty("country_name")
-	public String getCountryName() {
-		return countryName;
-	}
+	public Integer getLevel() { return level; }
 
-	@JsonProperty("country_name")
-	public void setCountryName(String countryName) {
-		this.countryName = countryName;
-	}
+	public Integer getPoint() { return point; }
 
-	@JsonProperty("jid")
-	public String getJid() {
-		return jid;
-	}
+	public String getPostsUrl() { return postsUrl; }
 
-	@JsonProperty("jid")
-	public void setJid(String jid) {
-		this.jid = jid;
-	}
+	public String getUrl() { return url; }
 
-	@JsonProperty("status")
-	public Integer getStatus() {
-		return status;
-	}
+	public Integer getNextOffset() { return nextOffset; }
 
-	@JsonProperty("status")
-	public void setStatus(Integer status) {
-		this.status = status;
-	}
+	public Boolean getHasNext() { return hasNext; }
 
-	@JsonProperty("bio")
-	public String getBio() {
-		return bio;
-	}
-
-	@JsonProperty("bio")
-	public void setBio(String bio) {
-		this.bio = bio;
-	}
-
-	@JsonProperty("avatar")
-	public Avatar getAvatar() {
-		return avatar;
-	}
-
-	@JsonProperty("avatar")
-	public void setAvatar(Avatar avatar) {
-		this.avatar = avatar;
-	}
-
-	@JsonProperty("cover_photo")
-	public Object getCoverPhoto() {
-		return coverPhoto;
-	}
-
-	@JsonProperty("cover_photo")
-	public void setCoverPhoto(Object coverPhoto) {
-		this.coverPhoto = coverPhoto;
-	}
-
-	@JsonProperty("content_photos")
-	public List<ContentPhoto> getContentPhotos() {
-		return contentPhotos;
-	}
-
-	@JsonProperty("content_photos")
-	public void setContentPhotos(List<ContentPhoto> contentPhotos) {
-		this.contentPhotos = contentPhotos;
-	}
-
-	@JsonProperty("activity")
-	public Activity getActivity() {
-		return activity;
-	}
-
-	@JsonProperty("activity")
-	public void setActivity(Activity activity) {
-		this.activity = activity;
-	}
-
-	@JsonProperty("level")
-	public Integer getLevel() {
-		return level;
-	}
-
-	@JsonProperty("level")
-	public void setLevel(Integer level) {
-		this.level = level;
-	}
-
-	@JsonProperty("point")
-	public Integer getPoint() {
-		return point;
-	}
-
-	@JsonProperty("point")
-	public void setPoint(Integer point) {
-		this.point = point;
-	}
-
-	@JsonProperty("posts_url")
-	public String getPostsUrl() {
-		return postsUrl;
-	}
-
-	@JsonProperty("posts_url")
-	public void setPostsUrl(String postsUrl) {
-		this.postsUrl = postsUrl;
-	}
-
-	@JsonProperty("url")
-	public String getUrl() {
-		return url;
-	}
-
-	@JsonProperty("url")
-	public void setUrl(String url) {
-		this.url = url;
-	}
-
-	@JsonProperty("next_offset")
-	public Integer getNextOffset() {
-		return nextOffset;
-	}
-
-	@JsonProperty("next_offset")
-	public void setNextOffset(Integer nextOffset) {
-		this.nextOffset = nextOffset;
-	}
-
-	@JsonProperty("has_next")
-	public Boolean getHasNext() {
-		return hasNext;
-	}
-
-	@JsonProperty("has_next")
-	public void setHasNext(Boolean hasNext) {
-		this.hasNext = hasNext;
-	}
-
-	@JsonProperty("posts")
-	public List<Post> getPosts() {
-		return posts;
-	}
-
-	@JsonProperty("posts")
-	public void setPosts(List<Post> posts) {
-		this.posts = posts;
-	}
+	public List<Post> getPosts() { return posts; }
 
 	@Override
 	public String toString() {

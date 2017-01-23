@@ -44,35 +44,11 @@ public class Thumbnail {
 
 	@JsonIgnore private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
-	@JsonProperty("url")
-	public String getUrl() {
-		return url;
-	}
+	public String getUrl() { return url; }
 
-	@JsonProperty("url")
-	public void setUrl(String url) {
-		this.url = url;
-	}
+	public Integer getWidth() { return width; }
 
-	@JsonProperty("width")
-	public Integer getWidth() {
-		return width;
-	}
-
-	@JsonProperty("width")
-	public void setWidth(Integer width) {
-		this.width = width;
-	}
-
-	@JsonProperty("height")
-	public Integer getHeight() {
-		return height;
-	}
-
-	@JsonProperty("height")
-	public void setHeight(Integer height) {
-		this.height = height;
-	}
+	public Integer getHeight() { return height; }
 
 	@Override
 	public String toString() {

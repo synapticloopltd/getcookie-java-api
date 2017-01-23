@@ -40,6 +40,7 @@ public class UserPosts {
 
 	@JsonProperty("meta") private Meta meta;
 	@JsonProperty("data") private UserData data;
+
 	@JsonIgnore private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
 	public Meta getMeta() { return meta; }

@@ -42,25 +42,9 @@ public class UserLevel {
 
 	@JsonIgnore private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
-	@JsonProperty("name")
-	public String getName() {
-		return name;
-	}
+	public String getName() { return name; }
 
-	@JsonProperty("name")
-	public void setName(String name) {
-		this.name = name;
-	}
-
-	@JsonProperty("level")
-	public Integer getLevel() {
-		return level;
-	}
-
-	@JsonProperty("level")
-	public void setLevel(Integer level) {
-		this.level = level;
-	}
+	public Integer getLevel() { return level; }
 
 	@Override
 	public String toString() {

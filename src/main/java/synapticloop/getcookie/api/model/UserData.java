@@ -38,17 +38,10 @@ public class UserData {
 	private static final Logger LOGGER = LoggerFactory.getLogger(UserData.class);
 
 	@JsonProperty("users") private List<User> users = null;
+
 	@JsonIgnore private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
-	@JsonProperty("users")
-	public List<User> getUsers() {
-		return users;
-	}
-
-	@JsonProperty("users")
-	public void setUsers(List<User> users) {
-		this.users = users;
-	}
+	public List<User> getUsers() { return users; }
 
 	@Override
 	public String toString() {
