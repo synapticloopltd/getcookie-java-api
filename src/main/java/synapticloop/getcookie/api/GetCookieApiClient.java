@@ -43,7 +43,7 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import synapticloop.getcookie.api.exception.GetCookieApiException;
-import synapticloop.getcookie.api.gmodel.GroupPost;
+import synapticloop.getcookie.api.model.GroupPost;
 import synapticloop.getcookie.api.model.UserPosts;
 
 

@@ -21,6 +21,7 @@ public class UserLevel {
 
 	@JsonProperty("name") private String name;
 	@JsonProperty("level") private Integer level;
+
 	@JsonIgnore private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
 	@JsonProperty("name")
