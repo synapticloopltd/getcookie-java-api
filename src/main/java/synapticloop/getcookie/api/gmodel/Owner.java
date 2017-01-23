@@ -15,6 +15,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import synapticloop.getcookie.api.model.Activity;
+import synapticloop.getcookie.api.model.Avatar;
 import synapticloop.getcookie.api.model.UserLevel;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)

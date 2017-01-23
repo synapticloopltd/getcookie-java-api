@@ -8,8 +8,8 @@ import org.junit.Test;
 import synapticloop.getcookie.api.exception.GetCookieApiException;
 import synapticloop.getcookie.api.model.ContentPhoto_;
 import synapticloop.getcookie.api.model.Post;
+import synapticloop.getcookie.api.model.Thumbnail;
 import synapticloop.getcookie.api.model.UserPosts;
-import synapticloop.getcookie.api.model._480wv_;
 
 public class UserPostTest {
 	private GetCookieApiClient getCookieApiClient;
@@ -44,7 +44,7 @@ public class UserPostTest {
 				System.out.println(":::" + post.getGroups().get(0).getUrl());
 				List<ContentPhoto_> contentPhotos = post.getContentPhotos();
 				for (ContentPhoto_ contentPhoto : contentPhotos) {
-					_480wv_ get480wv = contentPhoto.getThumbnails().get480wv();
+					Thumbnail get480wv = contentPhoto.getThumbnails().get480wv();
 					if(null != get480wv) {
 						System.out.println("wget " + get480wv.getUrl());
 					} else {

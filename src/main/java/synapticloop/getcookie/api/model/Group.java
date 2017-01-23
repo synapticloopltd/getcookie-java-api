@@ -14,7 +14,6 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import synapticloop.getcookie.api.gmodel.CoverPhoto;
-import synapticloop.getcookie.api.gmodel.Post;
 import synapticloop.getcookie.api.gmodel.Stat;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)

@@ -33,7 +33,7 @@ public class ContentPhoto_ {
     @JsonProperty("tile_thumbnails")
     private TileThumbnails_ tileThumbnails;
     @JsonProperty("thumbnails")
-    private Thumbnails___ thumbnails;
+    private AvatarThumbnails thumbnails;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
@@ -88,12 +88,12 @@ public class ContentPhoto_ {
     }
 
     @JsonProperty("thumbnails")
-    public Thumbnails___ getThumbnails() {
+    public AvatarThumbnails getThumbnails() {
         return thumbnails;
     }
 
     @JsonProperty("thumbnails")
-    public void setThumbnails(Thumbnails___ thumbnails) {
+    public void setThumbnails(AvatarThumbnails thumbnails) {
         this.thumbnails = thumbnails;
     }
 

@@ -15,35 +15,47 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
-	"840w",
-	"480w",
-	"240w",
-	"120w",
-	"480wa",
-	"480wv"
+	"url",
+	"width",
+	"height"
 })
-public class Thumbnails {
+public class Thumbnail {
 
-	@JsonProperty("840w") private Thumbnail _840w;
-	@JsonProperty("480w") private Thumbnail _480w;
-	@JsonProperty("240w") private Thumbnail _240w;
-	@JsonProperty("120w") private Thumbnail _120w;
-	@JsonProperty("480wa") private Thumbnail _480wa;
-	@JsonProperty("480wv") private Thumbnail _480wv;
+	@JsonProperty("url") private String url;
+	@JsonProperty("width") private Integer width;
+	@JsonProperty("height") private Integer height;
 
 	@JsonIgnore private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
-	public Thumbnail get840w() { return _840w; }
+	@JsonProperty("url")
+	public String getUrl() {
+		return url;
+	}
 
-	public Thumbnail get480w() { return _480w; }
+	@JsonProperty("url")
+	public void setUrl(String url) {
+		this.url = url;
+	}
 
-	public Thumbnail get240w() { return _240w; }
+	@JsonProperty("width")
+	public Integer getWidth() {
+		return width;
+	}
 
-	public Thumbnail get120w() { return _120w; }
+	@JsonProperty("width")
+	public void setWidth(Integer width) {
+		this.width = width;
+	}
 
-	public Thumbnail get480wa() { return _480wa; }
+	@JsonProperty("height")
+	public Integer getHeight() {
+		return height;
+	}
 
-	public Thumbnail get480wv() { return _480wv; }
+	@JsonProperty("height")
+	public void setHeight(Integer height) {
+		this.height = height;
+	}
 
 	@Override
 	public String toString() {

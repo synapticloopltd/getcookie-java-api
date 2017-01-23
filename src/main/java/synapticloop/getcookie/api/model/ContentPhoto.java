@@ -12,9 +12,6 @@ import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
-import synapticloop.getcookie.api.gmodel.Thumbnails__;
-import synapticloop.getcookie.api.gmodel.TileThumbnails_;
-
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
 	"animated",
@@ -31,7 +28,7 @@ public class ContentPhoto {
 	@JsonProperty("title") private Object title;
 	@JsonProperty("has_tiles") private Boolean hasTiles;
 	@JsonProperty("tile_thumbnails") private TileThumbnails_ tileThumbnails;
-	@JsonProperty("thumbnails") private Thumbnails__ thumbnails;
+	@JsonProperty("thumbnails") private Thumbnails thumbnails;
 	@JsonIgnore private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
 	@JsonProperty("animated")
@@ -85,12 +82,12 @@ public class ContentPhoto {
 	}
 
 	@JsonProperty("thumbnails")
-	public Thumbnails__ getThumbnails() {
+	public Thumbnails getThumbnails() {
 		return thumbnails;
 	}
 
 	@JsonProperty("thumbnails")
-	public void setThumbnails(Thumbnails__ thumbnails) {
+	public void setThumbnails(Thumbnails thumbnails) {
 		this.thumbnails = thumbnails;
 	}
 
