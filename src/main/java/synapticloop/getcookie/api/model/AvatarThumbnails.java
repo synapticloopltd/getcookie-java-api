@@ -32,84 +32,24 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
-	"840w",
-	"480w",
-	"240w",
-	"120w",
-	"480wa",
-	"480wv"
+	"100x100",
+	"400x400",
+	"800x800",
 })
 public class AvatarThumbnails {
 	private static final Logger LOGGER = LoggerFactory.getLogger(AvatarThumbnails.class);
 
-	@JsonProperty("840w") private Thumbnail _840w;
-	@JsonProperty("480w") private Thumbnail _480w;
-	@JsonProperty("240w") private Thumbnail _240w;
-	@JsonProperty("120w") private Thumbnail _120w;
-	@JsonProperty("480wa") private Thumbnail _480wa;
-	@JsonProperty("480wv") private Thumbnail _480wv;
+	@JsonProperty("100x100") private Thumbnail _100x100;
+	@JsonProperty("400x400") private Thumbnail _400x400;
+	@JsonProperty("800x800") private Thumbnail _800x800;
 
 	@JsonIgnore private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
-	@JsonProperty("840w")
-	public Thumbnail get840w() {
-		return _840w;
-	}
+	public Thumbnail get100x100() { return _100x100; }
 
-	@JsonProperty("840w")
-	public void set840w(Thumbnail _840w) {
-		this._840w = _840w;
-	}
+	public Thumbnail get400x400() { return _400x400; }
 
-	@JsonProperty("480w")
-	public Thumbnail get480w() {
-		return _480w;
-	}
-
-	@JsonProperty("480w")
-	public void set480w(Thumbnail _480w) {
-		this._480w = _480w;
-	}
-
-	@JsonProperty("240w")
-	public Thumbnail get240w() {
-		return _240w;
-	}
-
-	@JsonProperty("240w")
-	public void set240w(Thumbnail _240w) {
-		this._240w = _240w;
-	}
-
-	@JsonProperty("120w")
-	public Thumbnail get120w() {
-		return _120w;
-	}
-
-	@JsonProperty("120w")
-	public void set120w(Thumbnail _120w) {
-		this._120w = _120w;
-	}
-
-	@JsonProperty("480wa")
-	public Thumbnail get480wa() {
-		return _480wa;
-	}
-
-	@JsonProperty("480wa")
-	public void set480wa(Thumbnail _480wa) {
-		this._480wa = _480wa;
-	}
-
-	@JsonProperty("480wv")
-	public Thumbnail get480wv() {
-		return _480wv;
-	}
-
-	@JsonProperty("480wv")
-	public void set480wv(Thumbnail _480wv) {
-		this._480wv = _480wv;
-	}
+	public Thumbnail get800x800() { return _800x800; }
 
 	@Override
 	public String toString() {
