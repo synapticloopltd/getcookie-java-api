@@ -1,0 +1,120 @@
+{
+  "dotGitignore": {
+    "header": {},
+    "additionalEntries": {"entries": ""},
+    "filesToIgnore": {"tags": [
+      {
+        "name": "eclipse",
+        "value": "eclipse"
+      },
+      {
+        "name": "gradle",
+        "value": "gradle"
+      },
+      {
+        "name": "java",
+        "value": "java"
+      }
+    ]}
+  },
+  "buildDotGradle": {
+    "jvm": {
+      "targetCompatibility": {
+        "name": "java8",
+        "value": "1.8"
+      },
+      "sourceCompatibility": {
+        "name": "java8",
+        "value": "1.8"
+      }
+    },
+    "javadoc": {"jvm": {
+      "name": "java8",
+      "value": "8"
+    }},
+    "copyrightr": {
+      "onlyReplaceFirst": false,
+      "dryRun": false,
+      "yearSeparator": " - ",
+      "copyrightHolder": "Synapticloop"
+    },
+    "mavenPublish": {
+      "artifactId": "getcookie-java-api",
+      "group": "synapticloop"
+    },
+    "plugins": {"plugins": [
+      {
+        "name": "java",
+        "value": "id 'java'"
+      },
+      {
+        "name": "eclipse",
+        "value": "id 'eclipse'"
+      },
+      {
+        "name": "copyrightr",
+        "value": "id 'synapticloop.copyrightr' version '1.0.1'"
+      },
+      {
+        "name": "documentr",
+        "value": "id 'synapticloop.documentr' version '2.0.0'"
+      },
+      {
+        "name": "maven-publish",
+        "value": "id 'maven-publish'"
+      },
+      {
+        "name": "github-publish",
+        "value": "id 'co.riiid.gradle' version '0.4.2'"
+      },
+      {
+        "name": "bintray-publish",
+        "value": "id 'com.jfrog.bintray' version '1.6'"
+      }
+    ]},
+    "header": {},
+    "information": {
+      "archivesBaseName": "getcookie",
+      "description": "A Java API for getcookie.com",
+      "version": "0.0.1",
+      "group": "synapticloopltd"
+    },
+    "documentr": {
+      "extension": {
+        "name": "MarkDown",
+        "value": "md"
+      },
+      "directory": ".",
+      "verbose": false
+    },
+    "githubPublish": {},
+    "bintrayPublish": {
+      "publication": "synapticloop",
+      "name": "getcookie-java-api"
+    },
+    "dependencies": {
+      "compileDependencies": [{
+        "name": "slf4j-api",
+        "value": "'org.slf4j:slf4j-api:1.7.13'"
+      }],
+      "repositories": [
+        {
+          "name": "maven local",
+          "value": "mavenLocal()"
+        },
+        {
+          "name": "maven central",
+          "value": "mavenCentral()"
+        },
+        {
+          "name": "jcenter",
+          "value": "jcenter()"
+        }
+      ],
+      "testDependencies": [{
+        "name": "junit",
+        "value": "'junit:junit:4.12'"
+      }]
+    }
+  }
+}
