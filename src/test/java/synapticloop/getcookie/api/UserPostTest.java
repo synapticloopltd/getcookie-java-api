@@ -8,7 +8,7 @@ import org.junit.Test;
 import synapticloop.getcookie.api.exception.GetCookieApiException;
 import synapticloop.getcookie.api.model.ContentPhoto_;
 import synapticloop.getcookie.api.model.Post;
-import synapticloop.getcookie.api.model.UserPost;
+import synapticloop.getcookie.api.model.UserPosts;
 import synapticloop.getcookie.api.model._480wv_;
 
 public class UserPostTest {
@@ -21,7 +21,7 @@ public class UserPostTest {
 
 	@Test
 	public void testGetUserPosts() throws GetCookieApiException {
-		UserPost userPosts = getCookieApiClient.getUserPosts("bob_the_pirate", 0);
+		UserPosts userPosts = getCookieApiClient.getUserPosts("bob_the_pirate", 0);
 
 		List<Post> posts = userPosts.getData().getUsers().get(0).getPosts();
 		for (Post post : posts) {

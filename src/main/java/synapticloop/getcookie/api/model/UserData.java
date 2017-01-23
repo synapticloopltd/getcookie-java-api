@@ -1,6 +1,7 @@
 package synapticloop.getcookie.api.model;
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
@@ -14,45 +15,21 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
-	"code",
-	"status_code",
-	"message"
+	"users"
 })
-public class Meta {
+public class UserData {
 
-	@JsonProperty("code") private Integer code;
-	@JsonProperty("status_code") private String statusCode;
-	@JsonProperty("message") private String message;
+	@JsonProperty("users") private List<User> users = null;
 	@JsonIgnore private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
-	@JsonProperty("code")
-	public Integer getCode() {
-		return code;
+	@JsonProperty("users")
+	public List<User> getUsers() {
+		return users;
 	}
 
-	@JsonProperty("code")
-	public void setCode(Integer code) {
-		this.code = code;
-	}
-
-	@JsonProperty("status_code")
-	public String getStatusCode() {
-		return statusCode;
-	}
-
-	@JsonProperty("status_code")
-	public void setStatusCode(String statusCode) {
-		this.statusCode = statusCode;
-	}
-
-	@JsonProperty("message")
-	public String getMessage() {
-		return message;
-	}
-
-	@JsonProperty("message")
-	public void setMessage(String message) {
-		this.message = message;
+	@JsonProperty("users")
+	public void setUsers(List<User> users) {
+		this.users = users;
 	}
 
 	@Override

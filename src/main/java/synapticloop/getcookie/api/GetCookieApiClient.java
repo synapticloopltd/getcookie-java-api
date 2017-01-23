@@ -44,7 +44,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import synapticloop.getcookie.api.exception.GetCookieApiException;
 import synapticloop.getcookie.api.gmodel.GroupPost;
-import synapticloop.getcookie.api.model.UserPost;
+import synapticloop.getcookie.api.model.UserPosts;
 
 
 public class GetCookieApiClient {
@@ -59,15 +59,15 @@ public class GetCookieApiClient {
 		this.httpclient = httpBuilder.build();
 	}
 
-	public UserPost getUserPosts(String user) throws GetCookieApiException {
+	public UserPosts getUserPosts(String user) throws GetCookieApiException {
 		return(getUserPosts(user, 0));
 	}
 
-	public UserPost getUserPosts(String user, Integer offset) throws GetCookieApiException {
+	public UserPosts getUserPosts(String user, Integer offset) throws GetCookieApiException {
 		return(execute(Constants.HTTP_METHOD_GET, 
 				Constants.URL_GETCOOKIE_DOT_COM, 
 				String.format(Constants.PATH_GET_USER_POSTS, user, offset), 
-				200, UserPost.class));
+				200, UserPosts.class));
 	}
 
 	public GroupPost getGroupPosts(String group) throws GetCookieApiException {

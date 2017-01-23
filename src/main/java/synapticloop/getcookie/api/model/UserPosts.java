@@ -1,3 +1,4 @@
+
 package synapticloop.getcookie.api.model;
 
 import java.util.HashMap;
@@ -14,45 +15,33 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
-	"code",
-	"status_code",
-	"message"
+	"meta",
+	"data"
 })
-public class Meta {
+public class UserPosts {
 
-	@JsonProperty("code") private Integer code;
-	@JsonProperty("status_code") private String statusCode;
-	@JsonProperty("message") private String message;
+	@JsonProperty("meta") private Meta meta;
+	@JsonProperty("data") private UserData data;
 	@JsonIgnore private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
-	@JsonProperty("code")
-	public Integer getCode() {
-		return code;
+	@JsonProperty("meta")
+	public Meta getMeta() {
+		return meta;
 	}
 
-	@JsonProperty("code")
-	public void setCode(Integer code) {
-		this.code = code;
+	@JsonProperty("meta")
+	public void setMeta(Meta meta) {
+		this.meta = meta;
 	}
 
-	@JsonProperty("status_code")
-	public String getStatusCode() {
-		return statusCode;
+	@JsonProperty("data")
+	public UserData getData() {
+		return data;
 	}
 
-	@JsonProperty("status_code")
-	public void setStatusCode(String statusCode) {
-		this.statusCode = statusCode;
-	}
-
-	@JsonProperty("message")
-	public String getMessage() {
-		return message;
-	}
-
-	@JsonProperty("message")
-	public void setMessage(String message) {
-		this.message = message;
+	@JsonProperty("data")
+	public void setData(UserData data) {
+		this.data = data;
 	}
 
 	@Override
