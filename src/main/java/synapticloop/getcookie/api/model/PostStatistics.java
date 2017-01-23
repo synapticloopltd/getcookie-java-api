@@ -20,6 +20,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
@@ -44,7 +46,8 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 	"create_comment_coin",
 	"total_coin"
 })
-public class PostStat {
+public class PostStatistics {
+	private static final Logger LOGGER = LoggerFactory.getLogger(PostStatistics.class);
 
 	@JsonProperty("comment") private Integer comment;
 	@JsonProperty("fb_like") private Integer fbLike;
@@ -203,6 +206,7 @@ public class PostStat {
 
 	@JsonAnySetter
 	public void setAdditionalProperty(String name, Object value) {
+		LOGGER.warn("No native setter for key '{}' with value '{}'", name, value);
 		this.additionalProperties.put(name, value);
 	}
 

@@ -20,6 +20,8 @@ import java.util.HashMap;
 import java.util.Map;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
@@ -34,6 +36,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 	"level"
 })
 public class UserLevel {
+	private static final Logger LOGGER = LoggerFactory.getLogger(UserLevel.class);
 
 	@JsonProperty("name") private String name;
 	@JsonProperty("level") private Integer level;
@@ -72,6 +75,7 @@ public class UserLevel {
 
 	@JsonAnySetter
 	public void setAdditionalProperty(String name, Object value) {
+		LOGGER.warn("No native setter for key '{}' with value '{}'", name, value);
 		this.additionalProperties.put(name, value);
 	}
 

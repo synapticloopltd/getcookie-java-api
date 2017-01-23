@@ -21,6 +21,8 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
@@ -57,6 +59,8 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 	"comment_url"
 })
 public class Post {
+	private static final Logger LOGGER = LoggerFactory.getLogger(Post.class);
+
 
 	@JsonProperty("id") private String id;
 	@JsonProperty("title") private String title;
@@ -71,7 +75,7 @@ public class Post {
 	@JsonProperty("latitude") private Object latitude;
 	@JsonProperty("longitude") private Object longitude;
 	@JsonProperty("country") private Object country;
-	@JsonProperty("stat") private PostStat stat;
+	@JsonProperty("stat") private PostStatistics stat;
 	@JsonProperty("cover_photo") private CoverPhoto coverPhoto;
 	@JsonProperty("content_photos") private List<ContentPhoto> contentPhotos = null;
 	@JsonProperty("cover_video") private Object coverVideo;
@@ -216,12 +220,12 @@ public class Post {
 	}
 
 	@JsonProperty("stat")
-	public PostStat getStat() {
+	public PostStatistics getStat() {
 		return stat;
 	}
 
 	@JsonProperty("stat")
-	public void setStat(PostStat stat) {
+	public void setStat(PostStatistics stat) {
 		this.stat = stat;
 	}
 
@@ -337,6 +341,7 @@ public class Post {
 
 	@JsonAnySetter
 	public void setAdditionalProperty(String name, Object value) {
+		LOGGER.warn("No native setter for key '{}' with value '{}'", name, value);
 		this.additionalProperties.put(name, value);
 	}
 

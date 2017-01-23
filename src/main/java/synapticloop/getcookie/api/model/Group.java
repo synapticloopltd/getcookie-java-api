@@ -21,6 +21,8 @@ import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
@@ -53,6 +55,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 	"posts"
 })
 public class Group {
+	private static final Logger LOGGER = LoggerFactory.getLogger(Group.class);
 
 	@JsonProperty("id") private String id;
 	@JsonProperty("title") private String title;
@@ -65,7 +68,7 @@ public class Group {
 	@JsonProperty("canonical_name") private String canonicalName;
 	@JsonProperty("is_local") private Boolean isLocal;
 	@JsonProperty("created_at") private Integer createdAt;
-	@JsonProperty("stat") private GroupStat stat;
+	@JsonProperty("stat") private GroupStatistics stat;
 	@JsonProperty("cover_photo") private CoverPhoto coverPhoto;
 	@JsonProperty("featured") private Boolean featured;
 	@JsonProperty("country") private String country;
@@ -188,12 +191,12 @@ public class Group {
 	}
 
 	@JsonProperty("stat")
-	public GroupStat getStat() {
+	public GroupStatistics getStat() {
 		return stat;
 	}
 
 	@JsonProperty("stat")
-	public void setStat(GroupStat stat) {
+	public void setStat(GroupStatistics stat) {
 		this.stat = stat;
 	}
 
@@ -289,6 +292,7 @@ public class Group {
 
 	@JsonAnySetter
 	public void setAdditionalProperty(String name, Object value) {
+		LOGGER.warn("No native setter for key '{}' with value '{}'", name, value);
 		this.additionalProperties.put(name, value);
 	}
 
