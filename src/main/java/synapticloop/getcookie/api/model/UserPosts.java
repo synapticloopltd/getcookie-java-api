@@ -33,31 +33,15 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 	"meta",
 	"data"
 })
-public class UserPosts {
 
+public class UserPosts {
 	@JsonProperty("meta") private Meta meta;
 	@JsonProperty("data") private UserData data;
 	@JsonIgnore private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
-	@JsonProperty("meta")
-	public Meta getMeta() {
-		return meta;
-	}
+	public Meta getMeta() { return meta; }
 
-	@JsonProperty("meta")
-	public void setMeta(Meta meta) {
-		this.meta = meta;
-	}
-
-	@JsonProperty("data")
-	public UserData getData() {
-		return data;
-	}
-
-	@JsonProperty("data")
-	public void setData(UserData data) {
-		this.data = data;
-	}
+	public UserData getData() { return data; }
 
 	@Override
 	public String toString() {
@@ -73,5 +57,4 @@ public class UserPosts {
 	public void setAdditionalProperty(String name, Object value) {
 		this.additionalProperties.put(name, value);
 	}
-
 }
