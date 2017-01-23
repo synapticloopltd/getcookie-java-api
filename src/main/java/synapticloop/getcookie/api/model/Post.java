@@ -69,6 +69,7 @@ public class Post {
 	@JsonProperty("og_title") private String ogTitle;
 	@JsonProperty("og_description") private String ogDescription;
 	@JsonProperty("nsfw") private Boolean nsfw;
+	@JsonProperty("featured") private Boolean featured;
 	@JsonProperty("created_at") private Integer createdAt;
 	@JsonProperty("color_id") private Object colorId;
 	@JsonProperty("color_code") private Object colorCode;
@@ -89,245 +90,55 @@ public class Post {
 
 	@JsonIgnore private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
-	@JsonProperty("id")
-	public String getId() {
-		return id;
-	}
+	public String getId() { return this.id; }
 
-	@JsonProperty("id")
-	public void setId(String id) {
-		this.id = id;
-	}
+	public String getTitle() { return this.title; }
 
-	@JsonProperty("title")
-	public String getTitle() {
-		return title;
-	}
+	public String getTitleV2() { return this.titleV2; }
 
-	@JsonProperty("title")
-	public void setTitle(String title) {
-		this.title = title;
-	}
+	public String getDescription() { return this.description; }
 
-	@JsonProperty("title_v2")
-	public String getTitleV2() {
-		return titleV2;
-	}
+	public String getOgTitle() { return this.ogTitle; }
 
-	@JsonProperty("title_v2")
-	public void setTitleV2(String titleV2) {
-		this.titleV2 = titleV2;
-	}
+	public String getOgDescription() { return this.ogDescription; }
 
-	@JsonProperty("description")
-	public String getDescription() {
-		return description;
-	}
+	public Boolean getNsfw() { return this.nsfw; }
 
-	@JsonProperty("description")
-	public void setDescription(String description) {
-		this.description = description;
-	}
+	public Boolean getFeatured() { return this.featured; }
 
-	@JsonProperty("og_title")
-	public String getOgTitle() {
-		return ogTitle;
-	}
+	public Integer getCreatedAt() { return this.createdAt; }
 
-	@JsonProperty("og_title")
-	public void setOgTitle(String ogTitle) {
-		this.ogTitle = ogTitle;
-	}
+	public Object getColorId() { return this.colorId; }
 
-	@JsonProperty("og_description")
-	public String getOgDescription() {
-		return ogDescription;
-	}
+	public Object getColorCode() { return this.colorCode; }
 
-	@JsonProperty("og_description")
-	public void setOgDescription(String ogDescription) {
-		this.ogDescription = ogDescription;
-	}
+	public Object getLatitude() { return this.latitude; }
 
-	@JsonProperty("nsfw")
-	public Boolean getNsfw() {
-		return nsfw;
-	}
+	public Object getLongitude() { return this.longitude; }
 
-	@JsonProperty("nsfw")
-	public void setNsfw(Boolean nsfw) {
-		this.nsfw = nsfw;
-	}
+	public Object getCountry() { return this.country; }
 
-	@JsonProperty("created_at")
-	public Integer getCreatedAt() {
-		return createdAt;
-	}
+	public PostStatistics getStat() { return this.stat; }
 
-	@JsonProperty("created_at")
-	public void setCreatedAt(Integer createdAt) {
-		this.createdAt = createdAt;
-	}
+	public CoverPhoto getCoverPhoto() { return this.coverPhoto; }
 
-	@JsonProperty("color_id")
-	public Object getColorId() {
-		return colorId;
-	}
+	public List<ContentPhoto> getContentPhotos() { return this.contentPhotos; }
 
-	@JsonProperty("color_id")
-	public void setColorId(Object colorId) {
-		this.colorId = colorId;
-	}
+	public Object getCoverVideo() { return this.coverVideo; }
 
-	@JsonProperty("color_code")
-	public Object getColorCode() {
-		return colorCode;
-	}
+	public Owner getOwner() { return this.owner; }
 
-	@JsonProperty("color_code")
-	public void setColorCode(Object colorCode) {
-		this.colorCode = colorCode;
-	}
+	public Boolean getAnonymous() { return this.anonymous; }
 
-	@JsonProperty("latitude")
-	public Object getLatitude() {
-		return latitude;
-	}
+	public List<PostGroup> getGroups() { return this.groups; }
 
-	@JsonProperty("latitude")
-	public void setLatitude(Object latitude) {
-		this.latitude = latitude;
-	}
+	public Comment getComment() { return this.comment; }
 
-	@JsonProperty("longitude")
-	public Object getLongitude() {
-		return longitude;
-	}
+	public Boolean getIsLive() { return this.isLive; }
 
-	@JsonProperty("longitude")
-	public void setLongitude(Object longitude) {
-		this.longitude = longitude;
-	}
+	public String getUrl() { return this.url; }
 
-	@JsonProperty("country")
-	public Object getCountry() {
-		return country;
-	}
-
-	@JsonProperty("country")
-	public void setCountry(Object country) {
-		this.country = country;
-	}
-
-	@JsonProperty("stat")
-	public PostStatistics getStat() {
-		return stat;
-	}
-
-	@JsonProperty("stat")
-	public void setStat(PostStatistics stat) {
-		this.stat = stat;
-	}
-
-	@JsonProperty("cover_photo")
-	public CoverPhoto getCoverPhoto() {
-		return coverPhoto;
-	}
-
-	@JsonProperty("cover_photo")
-	public void setCoverPhoto(CoverPhoto coverPhoto) {
-		this.coverPhoto = coverPhoto;
-	}
-
-	@JsonProperty("content_photos")
-	public List<ContentPhoto> getContentPhotos() {
-		return contentPhotos;
-	}
-
-	@JsonProperty("content_photos")
-	public void setContentPhotos(List<ContentPhoto> contentPhotos) {
-		this.contentPhotos = contentPhotos;
-	}
-
-	@JsonProperty("cover_video")
-	public Object getCoverVideo() {
-		return coverVideo;
-	}
-
-	@JsonProperty("cover_video")
-	public void setCoverVideo(Object coverVideo) {
-		this.coverVideo = coverVideo;
-	}
-
-	@JsonProperty("owner")
-	public Owner getOwner() {
-		return owner;
-	}
-
-	@JsonProperty("owner")
-	public void setOwner(Owner owner) {
-		this.owner = owner;
-	}
-
-	@JsonProperty("anonymous")
-	public Boolean getAnonymous() {
-		return anonymous;
-	}
-
-	@JsonProperty("anonymous")
-	public void setAnonymous(Boolean anonymous) {
-		this.anonymous = anonymous;
-	}
-
-	@JsonProperty("groups")
-	public List<PostGroup> getGroups() {
-		return groups;
-	}
-
-	@JsonProperty("groups")
-	public void setGroups(List<PostGroup> groups) {
-		this.groups = groups;
-	}
-
-	@JsonProperty("comment")
-	public Comment getComment() {
-		return comment;
-	}
-
-	@JsonProperty("comment")
-	public void setComment(Comment comment) {
-		this.comment = comment;
-	}
-
-	@JsonProperty("is_live")
-	public Boolean getIsLive() {
-		return isLive;
-	}
-
-	@JsonProperty("is_live")
-	public void setIsLive(Boolean isLive) {
-		this.isLive = isLive;
-	}
-
-	@JsonProperty("url")
-	public String getUrl() {
-		return url;
-	}
-
-	@JsonProperty("url")
-	public void setUrl(String url) {
-		this.url = url;
-	}
-
-	@JsonProperty("comment_url")
-	public String getCommentUrl() {
-		return commentUrl;
-	}
-
-	@JsonProperty("comment_url")
-	public void setCommentUrl(String commentUrl) {
-		this.commentUrl = commentUrl;
-	}
+	public String getCommentUrl() { return this.commentUrl; }
 
 	@Override
 	public String toString() {
@@ -344,5 +155,4 @@ public class Post {
 		LOGGER.warn("No native setter for key '{}' with value '{}'", name, value);
 		this.additionalProperties.put(name, value);
 	}
-
 }
