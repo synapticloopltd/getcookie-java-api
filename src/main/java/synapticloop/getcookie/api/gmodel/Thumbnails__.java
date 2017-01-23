@@ -3,14 +3,22 @@ package synapticloop.getcookie.api.gmodel;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import org.apache.commons.lang3.builder.ToStringBuilder;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import org.apache.commons.lang3.builder.ToStringBuilder;
 
+import synapticloop.getcookie.api.model._120w__;
+import synapticloop.getcookie.api.model._240w__;
+import synapticloop.getcookie.api.model._480w__;
+import synapticloop.getcookie.api.model._480wa_;
+import synapticloop.getcookie.api.model._480wv_;
+import synapticloop.getcookie.api.model._840w__;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
     "840w",

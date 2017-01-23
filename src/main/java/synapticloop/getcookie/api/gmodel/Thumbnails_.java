@@ -3,13 +3,20 @@ package synapticloop.getcookie.api.gmodel;
 
 import java.util.HashMap;
 import java.util.Map;
+
+import org.apache.commons.lang3.builder.ToStringBuilder;
+
 import com.fasterxml.jackson.annotation.JsonAnyGetter;
 import com.fasterxml.jackson.annotation.JsonAnySetter;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-import org.apache.commons.lang3.builder.ToStringBuilder;
+
+import synapticloop.getcookie.api.model._120w_;
+import synapticloop.getcookie.api.model._240w_;
+import synapticloop.getcookie.api.model._480w_;
+import synapticloop.getcookie.api.model._840w_;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
@@ -31,9 +38,9 @@ public class Thumbnails_ {
     @JsonProperty("120w")
     private _120w_ _120w;
     @JsonProperty("480wa")
-    private synapticloop.getcookie.api.gmodel._480wa _480wa;
+    private synapticloop.getcookie.api.model._480wa _480wa;
     @JsonProperty("480wv")
-    private synapticloop.getcookie.api.gmodel._480wv _480wv;
+    private synapticloop.getcookie.api.model._480wv _480wv;
     @JsonIgnore
     private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
@@ -78,22 +85,22 @@ public class Thumbnails_ {
     }
 
     @JsonProperty("480wa")
-    public synapticloop.getcookie.api.gmodel._480wa get480wa() {
+    public synapticloop.getcookie.api.model._480wa get480wa() {
         return _480wa;
     }
 
     @JsonProperty("480wa")
-    public void set480wa(synapticloop.getcookie.api.gmodel._480wa _480wa) {
+    public void set480wa(synapticloop.getcookie.api.model._480wa _480wa) {
         this._480wa = _480wa;
     }
 
     @JsonProperty("480wv")
-    public synapticloop.getcookie.api.gmodel._480wv get480wv() {
+    public synapticloop.getcookie.api.model._480wv get480wv() {
         return _480wv;
     }
 
     @JsonProperty("480wv")
-    public void set480wv(synapticloop.getcookie.api.gmodel._480wv _480wv) {
+    public void set480wv(synapticloop.getcookie.api.model._480wv _480wv) {
         this._480wv = _480wv;
     }
 
