@@ -3,13 +3,12 @@ package synapticloop.getcookie.api;
 import java.util.List;
 
 import org.junit.Before;
-import org.junit.Test;
 
 import synapticloop.getcookie.api.exception.GetCookieApiException;
 import synapticloop.getcookie.api.model.Post;
 import synapticloop.getcookie.api.response.UserPostsResponse;
 
-public class UserPostTest {
+public class UserTest {
 	private GetCookieApiClient getCookieApiClient;
 
 	@Before
@@ -17,8 +16,8 @@ public class UserPostTest {
 		getCookieApiClient = new GetCookieApiClient();
 	}
 
-	@Test
-	public void testGetUserPosts() throws GetCookieApiException {
+//	@Test
+	public void testGetUser() throws GetCookieApiException {
 		UserPostsResponse userPosts = getCookieApiClient.getUserPosts("bob_the_pirate", 0l);
 
 		List<Post> posts = userPosts.getData().getUsers().get(0).getPosts();

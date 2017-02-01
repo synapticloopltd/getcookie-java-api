@@ -31,36 +31,46 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
-	"meta",
-	"data"
+	"id", 
+	"username", 
+	"avatar", 
+	"title", 
+	"image_url", 
+	"upvote", 
+	"downvote", 
+	"reply"
 })
-public class GroupPost {
-	private static final Logger LOGGER = LoggerFactory.getLogger(GroupPost.class);
 
-	@JsonProperty("meta") private Meta meta;
-	@JsonProperty("data") private GroupData data;
+
+public class PostComment {
+	private static final Logger LOGGER = LoggerFactory.getLogger(PostComment.class);
+
+	@JsonProperty("id") private String id;
+	@JsonProperty("username") private String username;
+	@JsonProperty("avatar") private String avatar;
+	@JsonProperty("title") private String title;
+	@JsonProperty("image_url") private String imageUrl;
+	@JsonProperty("upvote") private Integer upVote;
+	@JsonProperty("downvote") private Integer downVote;
+	@JsonProperty("reply") private Integer reply;
 
 	@JsonIgnore private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
-	@JsonProperty("meta")
-	public Meta getMeta() {
-		return meta;
-	}
+	public String getId() { return this.id; }
 
-	@JsonProperty("meta")
-	public void setMeta(Meta meta) {
-		this.meta = meta;
-	}
+	public String getUsername() { return this.username; }
 
-	@JsonProperty("data")
-	public GroupData getData() {
-		return data;
-	}
+	public String getAvatar() { return this.avatar; }
 
-	@JsonProperty("data")
-	public void setData(GroupData data) {
-		this.data = data;
-	}
+	public String getTitle() { return this.title; }
+
+	public String getImageUrl() { return this.imageUrl; }
+
+	public Integer getUpVote() { return this.upVote; }
+
+	public Integer getDownVote() { return this.downVote; }
+
+	public Integer getReply() { return this.reply; }
 
 	@Override
 	public String toString() {

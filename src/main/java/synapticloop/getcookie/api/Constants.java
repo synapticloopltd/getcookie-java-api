@@ -27,6 +27,7 @@ public class Constants {
 
 	public static final String PATH_GET_USER_POSTS = "/api/user/%s/posts?offset=%d";
 	public static final String PATH_GET_GROUP_POSTS = "/api/group/%s?offset=%d";
+	public static final String PATH_GET_POST = "/api/p/%s";
 
 	public static final String USER_AGENT = "synapticloop-getcookie-java-api";
 

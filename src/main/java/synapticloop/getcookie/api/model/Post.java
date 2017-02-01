@@ -37,6 +37,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 	"title_v2",
 	"description",
 	"og_title",
+	"og_photo",
 	"og_description",
 	"nsfw",
 	"created_at",
@@ -53,9 +54,11 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 	"anonymous",
 	"groups",
 	"comment",
+	"comments",
 	"is_live",
 	"url",
-	"comment_url"
+	"comment_url",
+	"old_url"
 })
 public class Post {
 	private static final Logger LOGGER = LoggerFactory.getLogger(Post.class);
@@ -66,6 +69,7 @@ public class Post {
 	@JsonProperty("title_v2") private String titleV2;
 	@JsonProperty("description") private String description;
 	@JsonProperty("og_title") private String ogTitle;
+	@JsonProperty("og_photo") private String ogPhoto;
 	@JsonProperty("og_description") private String ogDescription;
 	@JsonProperty("nsfw") private Boolean nsfw;
 	@JsonProperty("featured") private Boolean featured;
@@ -83,9 +87,11 @@ public class Post {
 	@JsonProperty("anonymous") private Boolean anonymous;
 	@JsonProperty("groups") private List<PostGroup> groups = null;
 	@JsonProperty("comment") private Comment comment;
+	@JsonProperty("comments") private List<PostComment> comments = null;
 	@JsonProperty("is_live") private Boolean isLive;
 	@JsonProperty("url") private String url;
 	@JsonProperty("comment_url") private String commentUrl;
+	@JsonProperty("old_url") private String oldUrl;
 
 	@JsonIgnore private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
@@ -139,6 +145,12 @@ public class Post {
 
 	public String getCommentUrl() { return this.commentUrl; }
 
+	public List<PostComment> getComments() { return this.comments; }
+
+	public String getOldUrl() { return this.oldUrl; }
+
+	public String getOgPhoto() { return this.ogPhoto; }
+
 	@Override
 	public String toString() {
 		return ToStringBuilder.reflectionToString(this);
@@ -149,4 +161,5 @@ public class Post {
 		LOGGER.warn("No native setter for key '{}' with value '{}'", name, value);
 		this.additionalProperties.put(name, value);
 	}
+
 }

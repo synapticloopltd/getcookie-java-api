@@ -17,6 +17,7 @@ package synapticloop.getcookie.api.model;
  */
 
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import org.apache.commons.lang3.builder.ToStringBuilder;
@@ -31,21 +32,22 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
-	"meta",
-	"data"
+	"users"
 })
+public class PostData {
+	private static final Logger LOGGER = LoggerFactory.getLogger(PostData.class);
 
-public class UserPosts {
-	private static final Logger LOGGER = LoggerFactory.getLogger(UserPosts.class);
-
-	@JsonProperty("meta") private Meta meta;
-	@JsonProperty("data") private UserData data;
+	@JsonProperty("posts") private List<Post> posts = null;
+	@JsonProperty("next_offset") private Long nextOffset;
+	@JsonProperty("has_next") private Boolean hasNext;
 
 	@JsonIgnore private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
-	public Meta getMeta() { return meta; }
+	public Long getNextOffset() { return this.nextOffset; }
 
-	public UserData getData() { return data; }
+	public Boolean getHasNext() { return this.hasNext; }
+
+	public List<Post> getPosts() { return posts; }
 
 	@Override
 	public String toString() {

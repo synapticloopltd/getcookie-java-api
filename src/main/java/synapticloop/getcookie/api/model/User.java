@@ -79,7 +79,7 @@ public class User {
 	@JsonProperty("point") private Integer point;
 	@JsonProperty("posts_url") private String postsUrl;
 	@JsonProperty("url") private String url;
-	@JsonProperty("next_offset") private Integer nextOffset;
+	@JsonProperty("next_offset") private Long nextOffset;
 	@JsonProperty("has_next") private Boolean hasNext;
 	@JsonProperty("posts") private List<Post> posts = null;
 
@@ -125,7 +125,7 @@ public class User {
 
 	public String getUrl() { return url; }
 
-	public Integer getNextOffset() { return nextOffset; }
+	public Long getNextOffset() { return nextOffset; }
 
 	public Boolean getHasNext() { return hasNext; }
 

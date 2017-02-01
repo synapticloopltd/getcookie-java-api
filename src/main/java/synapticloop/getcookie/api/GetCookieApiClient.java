@@ -1,5 +1,21 @@
 package synapticloop.getcookie.api;
 
+/*
+ * Copyright (c) 2017 Synapticloop.
+ * 
+ * All rights reserved.
+ * 
+ * This code may contain contributions from other parties which, where 
+ * applicable, will be listed in the default build file for the project 
+ * ~and/or~ in a file named CONTRIBUTORS.txt in the root of the project.
+ * 
+ * This source code and any derived binaries are covered by the terms and 
+ * conditions of the Licence agreement ("the Licence").  You may not use this 
+ * source code or any derived binaries except in compliance with the Licence.  
+ * A copy of the Licence is available in the file named LICENSE.txt shipped with 
+ * this source code or binaries.
+ */
+
 import java.io.IOException;
 
 import org.apache.commons.io.IOUtils;
@@ -33,8 +49,9 @@ import com.fasterxml.jackson.databind.DeserializationFeature;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 import synapticloop.getcookie.api.exception.GetCookieApiException;
-import synapticloop.getcookie.api.model.GroupPost;
-import synapticloop.getcookie.api.model.UserPosts;
+import synapticloop.getcookie.api.response.GroupPostsResponse;
+import synapticloop.getcookie.api.response.PostResponse;
+import synapticloop.getcookie.api.response.UserPostsResponse;
 
 
 public class GetCookieApiClient {
@@ -57,8 +74,8 @@ public class GetCookieApiClient {
 	 * 
 	 * @throws GetCookieApiException if there was an error with the API call
 	 */
-	public UserPosts getUserPosts(String username) throws GetCookieApiException {
-		return(getUserPosts(username, 0));
+	public UserPostsResponse getUserPosts(String username) throws GetCookieApiException {
+		return(getUserPosts(username, 0l));
 	}
 
 	/**
@@ -71,22 +88,60 @@ public class GetCookieApiClient {
 	 * 
 	 * @throws GetCookieApiException if there was an error with the API call
 	 */
-	public UserPosts getUserPosts(String username, Integer offset) throws GetCookieApiException {
+	public UserPostsResponse getUserPosts(String username, Long offset) throws GetCookieApiException {
 		return(execute(Constants.HTTP_METHOD_GET, 
 				Constants.URL_GETCOOKIE_DOT_COM, 
 				String.format(Constants.PATH_GET_USER_POSTS, username, offset), 
-				200, UserPosts.class));
+				200, 
+				UserPostsResponse.class));
 	}
 
-	public GroupPost getGroupPosts(String group) throws GetCookieApiException {
+	/**
+	 * Get the posts from a group
+	 * 
+	 * @param group the name of the group to get the posts from
+	 * 
+	 * @return The group post object
+	 * 
+	 * @throws GetCookieApiException If there was an error with the API call
+	 */
+	public GroupPostsResponse getGroupPosts(String group) throws GetCookieApiException {
 		return(getGroupPosts(group, 0l));
 	}
 
-	public GroupPost getGroupPosts(String group, Long offset) throws GetCookieApiException {
+	/**
+	 * Get the posts from a group with an offset
+	 * 
+	 * @param group the name of the group
+	 * @param offset the offset to start from
+	 * 
+	 * @return the group post object
+	 * 
+	 * @throws GetCookieApiException If there was an error with the API call
+	 */
+	public GroupPostsResponse getGroupPosts(String group, Long offset) throws GetCookieApiException {
 		return(execute(Constants.HTTP_METHOD_GET, 
 				Constants.URL_GETCOOKIE_DOT_COM, 
 				String.format(Constants.PATH_GET_GROUP_POSTS, group, offset), 
-				200, GroupPost.class));
+				200, 
+				GroupPostsResponse.class));
+	}
+
+	/**
+	 * Get a post and its comments
+	 * 
+	 * @param postId the alphanumeric id of the post
+	 * 
+	 * @return the post response
+	 * 
+	 * @throws GetCookieApiException if there was an error with the API call.
+	 */
+	public PostResponse getPost(String postId) throws GetCookieApiException {
+		return(execute(Constants.HTTP_METHOD_GET, 
+				Constants.URL_GETCOOKIE_DOT_COM, 
+				String.format(Constants.PATH_GET_POST, postId), 
+				200, 
+				PostResponse.class));
 	}
 
 	/**
