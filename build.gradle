@@ -11,20 +11,20 @@
 plugins {
 	id 'java'
 	id 'eclipse'
-	id 'synapticloop.copyrightr' version '1.0.1'
-	id 'synapticloop.documentr' version '2.0.0'
 	id 'maven-publish'
 	id 'co.riiid.gradle' version '0.4.2'
 	id 'com.jfrog.bintray' version '1.6'
+
+	id 'synapticloop.copyrightr' version '1.1.2'
+	id 'synapticloop.documentr' version '2.8.2'
 }
 
 // textual information for this project
 group = 'synapticloop'
-archivesBaseName = 'getcookie'
+archivesBaseName = 'getcookie-java-api'
 description = """A Java API for getcookie.com"""
 
-version = '0.0.1'
-
+version = '1.0.0'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -155,5 +155,4 @@ bintray {
 		repo = 'maven'
 		name = 'getcookie-java-api'
 	}
-
 }
