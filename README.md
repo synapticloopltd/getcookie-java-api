@@ -28,21 +28,21 @@
 
  - [getcookie-java-api](#documentr_heading_0)
  - [Table of Contents](#documentr_heading_1)
- - [Building the Package](#documentr_heading_2)
-   - [*NIX/Mac OS X](#documentr_heading_3)
-   - [Windows](#documentr_heading_4)
- - [Running the Tests](#documentr_heading_5)
-   - [*NIX/Mac OS X](#documentr_heading_6)
-   - [Windows](#documentr_heading_7)
- - [Artefact Publishing - Github](#documentr_heading_8)
- - [Artefact Publishing - Bintray](#documentr_heading_9)
-   - [maven setup](#documentr_heading_10)
-   - [gradle setup](#documentr_heading_11)
-   - [Dependencies - Gradle](#documentr_heading_12)
-   - [Dependencies - Maven](#documentr_heading_13)
-   - [Dependencies - Downloads](#documentr_heading_14)
- - [License](#documentr_heading_19)
-
+ - [Usage](#documentr_heading_2)
+ - [Building the Package](#documentr_heading_3)
+   - [*NIX/Mac OS X](#documentr_heading_4)
+   - [Windows](#documentr_heading_5)
+ - [Running the Tests](#documentr_heading_6)
+   - [*NIX/Mac OS X](#documentr_heading_7)
+   - [Windows](#documentr_heading_8)
+ - [Artefact Publishing - Github](#documentr_heading_9)
+ - [Artefact Publishing - Bintray](#documentr_heading_10)
+   - [maven setup](#documentr_heading_11)
+   - [gradle setup](#documentr_heading_12)
+   - [Dependencies - Gradle](#documentr_heading_13)
+   - [Dependencies - Maven](#documentr_heading_14)
+   - [Dependencies - Downloads](#documentr_heading_15)
+ - [License](#documentr_heading_20)
 
 
 
@@ -50,11 +50,94 @@
 
 <a name="documentr_heading_2"></a>
 
-# Building the Package <sup><sup>[top](documentr_top)</sup></sup>
+# Usage <sup><sup>[top](documentr_top)</sup></sup>
+
+The getcookie java API offers a **LIMITED, READ ONLY** interface to the 
+[https://getcookie.com/](https://getcookie.com/) website.  You can retrieve:
+
+  - Posts (and comments) from a specific group
+  - Posts (and comments) from a specific user
+
+An example is below:
+
+
+
+
+```
+package synapticloop.getcookie.api.example;
+
+import java.util.List;
+
+import synapticloop.getcookie.api.GetCookieApiClient;
+import synapticloop.getcookie.api.exception.GetCookieApiException;
+import synapticloop.getcookie.api.model.Group;
+import synapticloop.getcookie.api.model.Owner;
+import synapticloop.getcookie.api.model.Post;
+import synapticloop.getcookie.api.model.User;
+import synapticloop.getcookie.api.response.GroupPostsResponse;
+import synapticloop.getcookie.api.response.UserPostsResponse;
+
+public class QuickTest {
+	public static void main(String[] args) throws GetCookieApiException {
+		GetCookieApiClient getCookieApiClient = new GetCookieApiClient();
+
+		// get the posts for the 'shower-thoughts' group
+
+		GroupPostsResponse groupPosts = getCookieApiClient.getGroupPosts("shower-thoughts");
+
+		// due to the JSON data structure - there is an array of groups - which
+		// only ever has one entry in the array
+		List<Group> groups = groupPosts.getData().getGroups();
+
+		// get the group
+		Group group = groups.get(0);
+
+		// now get the posts
+		List<Post> posts = group.getPosts();
+		for (Post post : posts) {
+			// now we can retrieve the information from the post
+			String title = post.getTitle();
+			System.out.println(String.format("[ POST ] title: %s", title));
+
+			// we can also retrieve who posted it
+			Owner owner = post.getOwner();
+			String username = owner.getUsername();
+
+			// anonymous posts don't have much information
+			if(!"anonymous".equals(username)) {
+				System.out.println(String.format("  [ USER ] name: %s", username));
+				System.out.println(String.format("  [ USER ] from: %s", owner.getCountryName()));
+
+				// and get the posts that they have done
+				UserPostsResponse userPosts = getCookieApiClient.getUserPosts(username);
+				List<User> users = userPosts.getData().getUsers();
+				// once again - there is only one user in the array
+				User user = users.get(0);
+				List<Post> postsFromUser = user.getPosts();
+				for (Post postFromUser : postsFromUser) {
+					System.out.println(String.format("    [ USER_POST ] title: %s", postFromUser.getTitle()));
+				}
+			} else {
+				System.out.println(String.format("  [ USER ] [ anonymous ]"));
+			}
+		}
+	}
+}
+
+```
+
+
+
 
 
 
 <a name="documentr_heading_3"></a>
+
+# Building the Package <sup><sup>[top](documentr_top)</sup></sup>
+
+
+
+<a name="documentr_heading_4"></a>
 
 ## *NIX/Mac OS X <sup><sup>[top](documentr_top)</sup></sup>
 
@@ -65,7 +148,7 @@ From the root of the project, simply run
 
 
 
-<a name="documentr_heading_4"></a>
+<a name="documentr_heading_5"></a>
 
 ## Windows <sup><sup>[top](documentr_top)</sup></sup>
 
@@ -78,13 +161,13 @@ Note that this may also run tests (if applicable see the Testing notes)
 
 
 
-<a name="documentr_heading_5"></a>
+<a name="documentr_heading_6"></a>
 
 # Running the Tests <sup><sup>[top](documentr_top)</sup></sup>
 
 
 
-<a name="documentr_heading_6"></a>
+<a name="documentr_heading_7"></a>
 
 ## *NIX/Mac OS X <sup><sup>[top](documentr_top)</sup></sup>
 
@@ -98,7 +181,7 @@ if you do not have gradle installed, try:
 
 
 
-<a name="documentr_heading_7"></a>
+<a name="documentr_heading_8"></a>
 
 ## Windows <sup><sup>[top](documentr_top)</sup></sup>
 
@@ -115,7 +198,7 @@ The `--info` switch will also output logging for the tests
 
 
 
-<a name="documentr_heading_8"></a>
+<a name="documentr_heading_9"></a>
 
 # Artefact Publishing - Github <sup><sup>[top](documentr_top)</sup></sup>
 
@@ -127,7 +210,7 @@ As such, this is not a repository, but a location to download files from.
 
 
 
-<a name="documentr_heading_9"></a>
+<a name="documentr_heading_10"></a>
 
 # Artefact Publishing - Bintray <sup><sup>[top](documentr_top)</sup></sup>
 
@@ -137,7 +220,7 @@ This project publishes artefacts to [bintray](https://bintray.com/)
 
 
 
-<a name="documentr_heading_10"></a>
+<a name="documentr_heading_11"></a>
 
 ## maven setup <sup><sup>[top](documentr_top)</sup></sup>
 
@@ -183,7 +266,7 @@ this comes from the jcenter bintray, to set up your repository:
 
 
 
-<a name="documentr_heading_11"></a>
+<a name="documentr_heading_12"></a>
 
 ## gradle setup <sup><sup>[top](documentr_top)</sup></sup>
 
@@ -215,7 +298,7 @@ repositories {
 
 
 
-<a name="documentr_heading_12"></a>
+<a name="documentr_heading_13"></a>
 
 ## Dependencies - Gradle <sup><sup>[top](documentr_top)</sup></sup>
 
@@ -223,9 +306,9 @@ repositories {
 
 ```
 dependencies {
-	runtime(group: 'synapticloop', name: 'getcookie-java-api', version: '1.0.0', ext: 'jar')
+	runtime(group: 'synapticloop', name: 'getcookie-java-api', version: '1.0.1', ext: 'jar')
 
-	compile(group: 'synapticloop', name: 'getcookie-java-api', version: '1.0.0', ext: 'jar')
+	compile(group: 'synapticloop', name: 'getcookie-java-api', version: '1.0.1', ext: 'jar')
 }
 ```
 
@@ -237,9 +320,9 @@ or, more simply for versions of gradle greater than 2.1
 
 ```
 dependencies {
-	runtime 'synapticloop:getcookie-java-api:1.0.0'
+	runtime 'synapticloop:getcookie-java-api:1.0.1'
 
-	compile 'synapticloop:getcookie-java-api:1.0.0'
+	compile 'synapticloop:getcookie-java-api:1.0.1'
 }
 ```
 
@@ -247,7 +330,7 @@ dependencies {
 
 
 
-<a name="documentr_heading_13"></a>
+<a name="documentr_heading_14"></a>
 
 ## Dependencies - Maven <sup><sup>[top](documentr_top)</sup></sup>
 
@@ -257,7 +340,7 @@ dependencies {
 <dependency>
 	<groupId>synapticloop</groupId>
 	<artifactId>getcookie-java-api</artifactId>
-	<version>1.0.0</version>
+	<version>1.0.1</version>
 	<type>jar</type>
 </dependency>
 ```
@@ -266,7 +349,7 @@ dependencies {
 
 
 
-<a name="documentr_heading_14"></a>
+<a name="documentr_heading_15"></a>
 
 ## Dependencies - Downloads <sup><sup>[top](documentr_top)</sup></sup>
 
@@ -310,7 +393,7 @@ You will also need to download the following dependencies:
 
 
 
-<a name="documentr_heading_19"></a>
+<a name="documentr_heading_20"></a>
 
 # License <sup><sup>[top](documentr_top)</sup></sup>
 

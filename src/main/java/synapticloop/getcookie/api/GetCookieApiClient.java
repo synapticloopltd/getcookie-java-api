@@ -25,6 +25,7 @@ import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.impl.client.HttpClients;
+import org.apache.http.util.EntityUtils;
 
 /*
  * Copyright (c) 2017 Synapticloop.
@@ -137,11 +138,15 @@ public class GetCookieApiClient {
 	 * @throws GetCookieApiException if there was an error with the API call.
 	 */
 	public PostResponse getPost(String postId) throws GetCookieApiException {
-		return(execute(Constants.HTTP_METHOD_GET, 
-				Constants.URL_GETCOOKIE_DOT_COM, 
-				String.format(Constants.PATH_GET_POST, postId), 
-				200, 
-				PostResponse.class));
+		try {
+			return(execute(Constants.HTTP_METHOD_GET, 
+					Constants.URL_GETCOOKIE_DOT_COM, 
+					String.format(Constants.PATH_GET_POST, postId), 
+					200, 
+					PostResponse.class));
+		} catch(GetCookieApiException ex) {
+			throw(ex);
+		}
 	}
 
 	/**
@@ -176,7 +181,11 @@ public class GetCookieApiClient {
 			LOGGER.debug("Status code received: {}, wanted: {}.", statusCode, allowableStatusCode);
 			if(null != returnClass) {
 				try {
-					return parseResponse(response, returnClass);
+					T parseResponse = parseResponse(response, returnClass);
+					if( response.getEntity() != null ) {
+						EntityUtils.consume(response.getEntity());
+					}
+					return parseResponse;
 				} catch (IOException ex) {
 					throw new GetCookieApiException(ex);
 				}

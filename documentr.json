@@ -14,6 +14,12 @@
 		{ "type": "toplink", "value": " <a name=\"#documentr_top\"></a>" },
 		{ "type": "tocbacktotop", "value": " <sup><sup>[top](documentr_top)</sup></sup>" },
 
+		{ "type":"file", "value":"src/docs/usage-001.md" },
+
+		{ "type": "markup", "value":"\n```\n" },
+		{ "type": "file", "value":"src/test/java/synapticloop/getcookie/api/example/QuickTest.java" },
+		{ "type": "markup", "value":"\n```\n" },
+
 		{ "type":"inbuilt", "value":"gradle-build" },
 		{ "type":"inbuilt", "value":"gradle-test" },
 
