@@ -23,7 +23,7 @@ public class Constants {
 	public static final String HTTP_METHOD_POST = "POST";
 	public static final String HTTP_METHOD_DELETE = "DELETE";
 
-	public static final String URL_GETCOOKIE_DOT_COM = "http://getcookie.com";
+	public static final String URL_GETCOOKIE_DOT_COM = "https://getcookie.com";
 
 	public static final String PATH_GET_USER_POSTS = "/api/user/%s/posts?offset=%d";
 	public static final String PATH_GET_GROUP_POSTS = "/api/group/%s?offset=%d";
