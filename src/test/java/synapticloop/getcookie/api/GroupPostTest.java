@@ -8,6 +8,7 @@ import org.junit.Before;
 import org.junit.Test;
 
 import synapticloop.getcookie.api.exception.GetCookieApiException;
+import synapticloop.getcookie.api.model.GroupData;
 import synapticloop.getcookie.api.model.Post;
 import synapticloop.getcookie.api.response.GroupPostsResponse;
 
@@ -26,6 +27,9 @@ public class GroupPostTest {
 	public void testGetUserPosts() throws GetCookieApiException {
 		GroupPostsResponse groupPosts = getCookieApiClient.getGroupPosts(DEFAULT_USER_GROUP, 0l);
 		List<Post> posts = groupPosts.getData().getGroups().get(0).getPosts();
+		assertNotNull(posts);
+		GroupData data = groupPosts.getData();
+		assertNotNull(data.getGroups());
 
 		Long nextOffset = groupPosts.getData().getGroups().get(0).getNextOffset();
 		while(null != nextOffset) {

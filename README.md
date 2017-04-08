@@ -306,9 +306,9 @@ repositories {
 
 ```
 dependencies {
-	runtime(group: 'synapticloop', name: 'getcookie-java-api', version: '1.1.0', ext: 'jar')
+	runtime(group: 'synapticloop', name: 'getcookie-java-api', version: '1.2.0', ext: 'jar')
 
-	compile(group: 'synapticloop', name: 'getcookie-java-api', version: '1.1.0', ext: 'jar')
+	compile(group: 'synapticloop', name: 'getcookie-java-api', version: '1.2.0', ext: 'jar')
 }
 ```
 
@@ -320,9 +320,9 @@ or, more simply for versions of gradle greater than 2.1
 
 ```
 dependencies {
-	runtime 'synapticloop:getcookie-java-api:1.1.0'
+	runtime 'synapticloop:getcookie-java-api:1.2.0'
 
-	compile 'synapticloop:getcookie-java-api:1.1.0'
+	compile 'synapticloop:getcookie-java-api:1.2.0'
 }
 ```
 
@@ -340,7 +340,7 @@ dependencies {
 <dependency>
 	<groupId>synapticloop</groupId>
 	<artifactId>getcookie-java-api</artifactId>
-	<version>1.1.0</version>
+	<version>1.2.0</version>
 	<type>jar</type>
 </dependency>
 ```
