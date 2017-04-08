@@ -14,6 +14,8 @@ plugins {
 	id 'maven-publish'
 	id 'co.riiid.gradle' version '0.4.2'
 	id "com.jfrog.bintray" version "1.7.3"
+	id 'net.saliman.cobertura' version '2.4.0'
+	id 'com.github.ben-manes.versions' version '0.14.0'
 
 	id 'synapticloop.copyrightr' version '1.1.2'
 	id 'synapticloop.documentr' version '2.8.2'
@@ -24,7 +26,7 @@ group = 'synapticloop'
 archivesBaseName = 'getcookie-java-api'
 description = """A Java API for getcookie.com"""
 
-version = '1.0.2'
+version = '1.1.0'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -38,21 +40,21 @@ repositories {
 }
 // list all of the dependencies for this project
 dependencies {
-	runtime 'org.apache.httpcomponents:httpclient:4.5.1'
-	runtime 'commons-io:commons-io:2.4'
+	runtime 'org.apache.httpcomponents:httpclient:4.5.3'
+	runtime 'commons-io:commons-io:2.5'
 	runtime 'com.fasterxml.jackson.core:jackson-databind:2.8.5'
 	runtime 'org.slf4j:slf4j-api:1.7.13'
 	runtime 'org.apache.commons:commons-lang3:3.5'
-	runtime 'org.apache.logging.log4j:log4j-slf4j-impl:2.7'
-	runtime 'org.apache.logging.log4j:log4j-core:2.7'
+	compile 'org.apache.logging.log4j:log4j-slf4j-impl:2.8.2'
+	compile 'org.apache.logging.log4j:log4j-core:2.8.2'
 
-	compile 'org.apache.httpcomponents:httpclient:4.5.1'
-	compile 'commons-io:commons-io:2.4'
+	compile 'org.apache.httpcomponents:httpclient:4.5.3'
+	compile 'commons-io:commons-io:2.5'
 	compile 'com.fasterxml.jackson.core:jackson-databind:2.8.5'
 	compile 'org.slf4j:slf4j-api:1.7.13'
 	compile 'org.apache.commons:commons-lang3:3.5'
-	compile 'org.apache.logging.log4j:log4j-slf4j-impl:2.7'
-	compile 'org.apache.logging.log4j:log4j-core:2.7'
+	compile 'org.apache.logging.log4j:log4j-slf4j-impl:2.8.2'
+	compile 'org.apache.logging.log4j:log4j-core:2.8.2'
 
 
 	testRuntime 'junit:junit:4.12'
@@ -65,7 +67,8 @@ dependencies {
 configurations.all {
 	resolutionStrategy {
 		failOnVersionConflict()
-		force 'org.slf4j:slf4j-api:1.7.13'
+		force 'org.slf4j:slf4j-api:1.7.13',
+					'junit:junit:4.12'
 	}
 }
 
@@ -85,6 +88,20 @@ copyrightr {
 	// the year separator to use
 	yearSeparator = " - "
 
+}
+
+/*
+ * COBERTURA
+ */
+
+cobertura {
+	coverageFormats = [ 'html', 'xml']
+}
+
+test {
+	include '**/*Test.class' 
+	maxParallelForks = 1
+	forkEvery = 50 
 }
 
 
