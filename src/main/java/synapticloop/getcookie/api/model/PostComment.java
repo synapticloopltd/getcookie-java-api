@@ -16,15 +16,9 @@ package synapticloop.getcookie.api.model;
  * this source code or binaries.
  */
 
-import java.util.HashMap;
-import java.util.Map;
-
-import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -42,19 +36,17 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 })
 
 
-public class PostComment {
+public class PostComment extends ModelBase {
 	private static final Logger LOGGER = LoggerFactory.getLogger(PostComment.class);
 
-	@JsonProperty("id") private String id;
-	@JsonProperty("username") private String username;
-	@JsonProperty("avatar") private String avatar;
-	@JsonProperty("title") private String title;
-	@JsonProperty("image_url") private String imageUrl;
-	@JsonProperty("upvote") private Integer upVote;
-	@JsonProperty("downvote") private Integer downVote;
-	@JsonProperty("reply") private Integer reply;
-
-	@JsonIgnore private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+	@JsonProperty("id")         private String id;
+	@JsonProperty("username")   private String username;
+	@JsonProperty("avatar")     private String avatar;
+	@JsonProperty("title")      private String title;
+	@JsonProperty("image_url")  private String imageUrl;
+	@JsonProperty("upvote")     private Integer upVote;
+	@JsonProperty("downvote")   private Integer downVote;
+	@JsonProperty("reply")      private Integer reply;
 
 	public String getId() { return this.id; }
 
@@ -73,14 +65,6 @@ public class PostComment {
 	public Integer getReply() { return this.reply; }
 
 	@Override
-	public String toString() {
-		return ToStringBuilder.reflectionToString(this);
-	}
-
-	@JsonAnySetter
-	public void setAdditionalProperty(String name, Object value) {
-		LOGGER.warn("No native setter for key '{}' with value '{}'", name, value);
-		this.additionalProperties.put(name, value);
-	}
+	public Logger getLogger() { return(LOGGER); }
 
 }

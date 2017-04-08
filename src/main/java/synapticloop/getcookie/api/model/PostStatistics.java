@@ -16,15 +16,9 @@ package synapticloop.getcookie.api.model;
  * this source code or binaries.
  */
 
-import java.util.HashMap;
-import java.util.Map;
-
-import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -45,25 +39,22 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 	"create_comment_coin",
 	"total_coin"
 })
-public class PostStatistics {
+public class PostStatistics extends ModelBase {
 	private static final Logger LOGGER = LoggerFactory.getLogger(PostStatistics.class);
 
-	@JsonProperty("comment") private Integer comment;
-	@JsonProperty("fb_like") private Integer fbLike;
-	@JsonProperty("fb_share") private Integer fbShare;
-	@JsonProperty("fb_comment") private Integer fbComment;
-	@JsonProperty("comment_v2") private Integer commentV2;
-	@JsonProperty("upvote") private Integer upvote;
-	@JsonProperty("downvote") private Integer downvote;
-	@JsonProperty("score") private Integer score;
-	@JsonProperty("report") private Integer report;
-	@JsonProperty("coin") private Integer coin;
-	@JsonProperty("comment_coin") private Integer commentCoin;
+	@JsonProperty("comment")             private Integer comment;
+	@JsonProperty("fb_like")             private Integer fbLike;
+	@JsonProperty("fb_share")            private Integer fbShare;
+	@JsonProperty("fb_comment")          private Integer fbComment;
+	@JsonProperty("comment_v2")          private Integer commentV2;
+	@JsonProperty("upvote")              private Integer upvote;
+	@JsonProperty("downvote")            private Integer downvote;
+	@JsonProperty("score")               private Integer score;
+	@JsonProperty("report")              private Integer report;
+	@JsonProperty("coin")                private Integer coin;
+	@JsonProperty("comment_coin")        private Integer commentCoin;
 	@JsonProperty("create_comment_coin") private Integer createCommentCoin;
-	@JsonProperty("total_coin") private Integer totalCoin;
-
-	@JsonIgnore private Map<String, Object> additionalProperties = new HashMap<String, Object>();
-
+	@JsonProperty("total_coin")          private Integer totalCoin;
 
 	public Integer getComment() { return comment; }
 
@@ -92,14 +83,5 @@ public class PostStatistics {
 	public Integer getTotalCoin() { return totalCoin; }
 
 	@Override
-	public String toString() {
-		return ToStringBuilder.reflectionToString(this);
-	}
-
-	@JsonAnySetter
-	public void setAdditionalProperty(String name, Object value) {
-		LOGGER.warn("No native setter for key '{}' with value '{}'", name, value);
-		this.additionalProperties.put(name, value);
-	}
-
+	public Logger getLogger() { return(LOGGER); }
 }

@@ -16,16 +16,12 @@ package synapticloop.getcookie.api.model;
  * this source code or binaries.
  */
 
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
-import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -34,24 +30,13 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 @JsonPropertyOrder({
 	"users"
 })
-public class UserData {
+public class UserData extends ModelBase {
 	private static final Logger LOGGER = LoggerFactory.getLogger(UserData.class);
 
-	@JsonProperty("users") private List<User> users = null;
-
-	@JsonIgnore private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+	@JsonProperty("users") private List<User> users = new ArrayList<User>();
 
 	public List<User> getUsers() { return users; }
 
 	@Override
-	public String toString() {
-		return ToStringBuilder.reflectionToString(this);
-	}
-
-	@JsonAnySetter
-	public void setAdditionalProperty(String name, Object value) {
-		LOGGER.warn("No native setter for key '{}' with value '{}'", name, value);
-		this.additionalProperties.put(name, value);
-	}
-
+	public Logger getLogger() { return(LOGGER); }
 }

@@ -16,15 +16,9 @@ package synapticloop.getcookie.api.model;
  * this source code or binaries.
  */
 
-import java.util.HashMap;
-import java.util.Map;
-
-import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -35,14 +29,12 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 	"width",
 	"height"
 })
-public class Thumbnail {
+public class Thumbnail extends ModelBase {
 	private static final Logger LOGGER = LoggerFactory.getLogger(Thumbnail.class);
 
-	@JsonProperty("url") private String url;
-	@JsonProperty("width") private Integer width;
-	@JsonProperty("height") private Integer height;
-
-	@JsonIgnore private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+	@JsonProperty("url")     private String url;
+	@JsonProperty("width")   private Integer width;
+	@JsonProperty("height")  private Integer height;
 
 	public String getUrl() { return url; }
 
@@ -51,14 +43,6 @@ public class Thumbnail {
 	public Integer getHeight() { return height; }
 
 	@Override
-	public String toString() {
-		return ToStringBuilder.reflectionToString(this);
-	}
-
-	@JsonAnySetter
-	public void setAdditionalProperty(String name, Object value) {
-		LOGGER.warn("No native setter for key '{}' with value '{}'", name, value);
-		this.additionalProperties.put(name, value);
-	}
+	public Logger getLogger() { return(LOGGER); }
 
 }

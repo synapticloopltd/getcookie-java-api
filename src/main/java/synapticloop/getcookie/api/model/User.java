@@ -16,16 +16,12 @@ package synapticloop.getcookie.api.model;
  * this source code or binaries.
  */
 
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
-import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -56,34 +52,33 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 	"has_next",
 	"posts"
 })
-public class User {
+public class User extends ModelBase {
 	private static final Logger LOGGER = LoggerFactory.getLogger(User.class);
 
-	@JsonProperty("id") private String id;
-	@JsonProperty("username") private String username;
-	@JsonProperty("fullname") private String fullname;
-	@JsonProperty("account_id") private Integer accountId;
-	@JsonProperty("gender") private Integer gender;
-	@JsonProperty("age") private Integer age;
-	@JsonProperty("zodiac") private String zodiac;
-	@JsonProperty("country") private String country;
-	@JsonProperty("country_name") private String countryName;
-	@JsonProperty("jid") private String jid;
-	@JsonProperty("status") private Integer status;
-	@JsonProperty("bio") private String bio;
-	@JsonProperty("avatar") private Avatar avatar;
-	@JsonProperty("cover_photo") private Object coverPhoto;
-	@JsonProperty("content_photos") private List<ContentPhoto> contentPhotos = null;
-	@JsonProperty("activity") private Activity activity;
-	@JsonProperty("level") private Integer level;
-	@JsonProperty("point") private Integer point;
-	@JsonProperty("posts_url") private String postsUrl;
-	@JsonProperty("url") private String url;
-	@JsonProperty("next_offset") private Long nextOffset;
-	@JsonProperty("has_next") private Boolean hasNext;
-	@JsonProperty("posts") private List<Post> posts = null;
+	@JsonProperty("id")              private String id;
+	@JsonProperty("username")        private String username;
+	@JsonProperty("fullname")        private String fullname;
+	@JsonProperty("account_id")      private Integer accountId;
+	@JsonProperty("gender")          private Integer gender;
+	@JsonProperty("age")             private Integer age;
+	@JsonProperty("zodiac")          private String zodiac;
+	@JsonProperty("country")         private String country;
+	@JsonProperty("country_name")    private String countryName;
+	@JsonProperty("jid")             private String jid;
+	@JsonProperty("status")          private Integer status;
+	@JsonProperty("bio")             private String bio;
+	@JsonProperty("avatar")          private Avatar avatar;
+	@JsonProperty("cover_photo")     private Object coverPhoto;
+	@JsonProperty("content_photos")  private List<ContentPhoto> contentPhotos = new ArrayList<ContentPhoto>();
+	@JsonProperty("activity")        private Activity activity;
+	@JsonProperty("level")           private Integer level;
+	@JsonProperty("point")           private Integer point;
+	@JsonProperty("posts_url")       private String postsUrl;
+	@JsonProperty("url")             private String url;
+	@JsonProperty("next_offset")     private Long nextOffset;
+	@JsonProperty("has_next")        private Boolean hasNext;
+	@JsonProperty("posts")           private List<Post> posts = new ArrayList<Post>();
 
-	@JsonIgnore private Map<String, Object> additionalProperties = new HashMap<String, Object>();
 
 	public String getId() { return id; }
 
@@ -132,14 +127,5 @@ public class User {
 	public List<Post> getPosts() { return posts; }
 
 	@Override
-	public String toString() {
-		return ToStringBuilder.reflectionToString(this);
-	}
-
-	@JsonAnySetter
-	public void setAdditionalProperty(String name, Object value) {
-		LOGGER.warn("No native setter for key '{}' with value '{}'", name, value);
-		this.additionalProperties.put(name, value);
-	}
-
+	public Logger getLogger() { return(LOGGER); }
 }

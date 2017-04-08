@@ -16,15 +16,9 @@ package synapticloop.getcookie.api.model;
  * this source code or binaries.
  */
 
-import java.util.HashMap;
-import java.util.Map;
-
-import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -37,7 +31,7 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 	"url",
 	"comment_url"
 })
-public class PostGroup {
+public class PostGroup extends ModelBase {
 	private static final Logger LOGGER = LoggerFactory.getLogger(PostGroup.class);
 
 	@JsonProperty("id") private String id;
@@ -46,67 +40,16 @@ public class PostGroup {
 	@JsonProperty("url") private String url;
 	@JsonProperty("comment_url") private String commentUrl;
 
-	@JsonIgnore private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+	public String getId() { return id; }
 
-	@JsonProperty("id")
-	public String getId() {
-		return id;
-	}
+	public String getTitle() { return title; }
 
-	@JsonProperty("id")
-	public void setId(String id) {
-		this.id = id;
-	}
+	public Boolean getFeatured() { return featured; }
 
-	@JsonProperty("title")
-	public String getTitle() {
-		return title;
-	}
+	public String getUrl() { return url; }
 
-	@JsonProperty("title")
-	public void setTitle(String title) {
-		this.title = title;
-	}
-
-	@JsonProperty("featured")
-	public Boolean getFeatured() {
-		return featured;
-	}
-
-	@JsonProperty("featured")
-	public void setFeatured(Boolean featured) {
-		this.featured = featured;
-	}
-
-	@JsonProperty("url")
-	public String getUrl() {
-		return url;
-	}
-
-	@JsonProperty("url")
-	public void setUrl(String url) {
-		this.url = url;
-	}
-
-	@JsonProperty("comment_url")
-	public String getCommentUrl() {
-		return commentUrl;
-	}
-
-	@JsonProperty("comment_url")
-	public void setCommentUrl(String commentUrl) {
-		this.commentUrl = commentUrl;
-	}
+	public String getCommentUrl() { return commentUrl; }
 
 	@Override
-	public String toString() {
-		return ToStringBuilder.reflectionToString(this);
-	}
-
-	@JsonAnySetter
-	public void setAdditionalProperty(String name, Object value) {
-		LOGGER.warn("No native setter for key '{}' with value '{}'", name, value);
-		this.additionalProperties.put(name, value);
-	}
-
+	public Logger getLogger() { return(LOGGER); }
 }

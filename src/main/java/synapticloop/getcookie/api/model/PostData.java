@@ -16,32 +16,22 @@ package synapticloop.getcookie.api.model;
  * this source code or binaries.
  */
 
-import java.util.HashMap;
+import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
-import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
-@JsonPropertyOrder({
-	"users"
-})
-public class PostData {
+public class PostData extends ModelBase {
 	private static final Logger LOGGER = LoggerFactory.getLogger(PostData.class);
 
-	@JsonProperty("posts") private List<Post> posts = null;
-	@JsonProperty("next_offset") private Long nextOffset;
-	@JsonProperty("has_next") private Boolean hasNext;
-
-	@JsonIgnore private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+	@JsonProperty("posts")        private List<Post> posts = new ArrayList<Post>();
+	@JsonProperty("next_offset")  private Long nextOffset;
+	@JsonProperty("has_next")     private Boolean hasNext;
 
 	public Long getNextOffset() { return this.nextOffset; }
 
@@ -50,13 +40,5 @@ public class PostData {
 	public List<Post> getPosts() { return posts; }
 
 	@Override
-	public String toString() {
-		return ToStringBuilder.reflectionToString(this);
-	}
-
-	@JsonAnySetter
-	public void setAdditionalProperty(String name, Object value) {
-		LOGGER.warn("No native setter for key '{}' with value '{}'", name, value);
-		this.additionalProperties.put(name, value);
-	}
+	public Logger getLogger() { return(LOGGER); }
 }

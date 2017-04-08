@@ -16,64 +16,28 @@ package synapticloop.getcookie.api.response;
  * this source code or binaries.
  */
 
-import java.util.HashMap;
-import java.util.Map;
-
-import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
 import synapticloop.getcookie.api.model.GroupData;
-import synapticloop.getcookie.api.model.Meta;
 
 @JsonInclude(JsonInclude.Include.NON_NULL)
 @JsonPropertyOrder({
 	"meta",
 	"data"
 })
-public class GroupPostsResponse {
+public class GroupPostsResponse extends ResponseBase {
 	private static final Logger LOGGER = LoggerFactory.getLogger(GroupPostsResponse.class);
 
-	@JsonProperty("meta") private Meta meta;
-	@JsonProperty("data") private GroupData data;
+	@JsonProperty("data")  private GroupData data;
 
-	@JsonIgnore private Map<String, Object> additionalProperties = new HashMap<String, Object>();
-
-	@JsonProperty("meta")
-	public Meta getMeta() {
-		return meta;
-	}
-
-	@JsonProperty("meta")
-	public void setMeta(Meta meta) {
-		this.meta = meta;
-	}
-
-	@JsonProperty("data")
-	public GroupData getData() {
-		return data;
-	}
-
-	@JsonProperty("data")
-	public void setData(GroupData data) {
-		this.data = data;
-	}
+	public GroupData getData() { return data; }
 
 	@Override
-	public String toString() {
-		return ToStringBuilder.reflectionToString(this);
-	}
-
-	@JsonAnySetter
-	public void setAdditionalProperty(String name, Object value) {
-		LOGGER.warn("No native setter for key '{}' with value '{}'", name, value);
-		this.additionalProperties.put(name, value);
-	}
+	public Logger getLogger() { return(LOGGER); }
 
 }

@@ -16,15 +16,9 @@ package synapticloop.getcookie.api.model;
  * this source code or binaries.
  */
 
-import java.util.HashMap;
-import java.util.Map;
-
-import org.apache.commons.lang3.builder.ToStringBuilder;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import com.fasterxml.jackson.annotation.JsonAnySetter;
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
@@ -35,53 +29,19 @@ import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 	"status_code",
 	"message"
 })
-public class Meta {
+public class Meta extends ModelBase {
 	private static final Logger LOGGER = LoggerFactory.getLogger(Meta.class);
 
-	@JsonProperty("code") private Integer code;
-	@JsonProperty("status_code") private String statusCode;
-	@JsonProperty("message") private String message;
-	@JsonIgnore private Map<String, Object> additionalProperties = new HashMap<String, Object>();
+	@JsonProperty("code")         private Integer code;
+	@JsonProperty("status_code")  private String statusCode;
+	@JsonProperty("message")      private String message;
 
-	@JsonProperty("code")
-	public Integer getCode() {
-		return code;
-	}
+	public Integer getCode() { return code; }
 
-	@JsonProperty("code")
-	public void setCode(Integer code) {
-		this.code = code;
-	}
+	public String getStatusCode() { return statusCode; }
 
-	@JsonProperty("status_code")
-	public String getStatusCode() {
-		return statusCode;
-	}
-
-	@JsonProperty("status_code")
-	public void setStatusCode(String statusCode) {
-		this.statusCode = statusCode;
-	}
-
-	@JsonProperty("message")
-	public String getMessage() {
-		return message;
-	}
-
-	@JsonProperty("message")
-	public void setMessage(String message) {
-		this.message = message;
-	}
+	public String getMessage() { return message; }
 
 	@Override
-	public String toString() {
-		return ToStringBuilder.reflectionToString(this);
-	}
-
-	@JsonAnySetter
-	public void setAdditionalProperty(String name, Object value) {
-		LOGGER.warn("No native setter for key '{}' with value '{}'", name, value);
-		this.additionalProperties.put(name, value);
-	}
-
+	public Logger getLogger() { return(LOGGER); }
 }
