@@ -17,6 +17,7 @@ package synapticloop.getcookie.api;
  */
 
 import java.io.IOException;
+import java.nio.charset.Charset;
 
 import org.apache.commons.io.IOUtils;
 import org.apache.http.HttpEntity;
@@ -199,7 +200,7 @@ public class GetCookieApiClient {
 		} else {
 			LOGGER.error("Invalid status code received: {}, wanted: {}.", statusCode, allowableStatusCode);
 			try {
-				throw new GetCookieApiException(IOUtils.toString(response.getEntity().getContent()));
+				throw new GetCookieApiException(IOUtils.toString(response.getEntity().getContent(), Charset.forName("UTF-8")));
 			} catch (UnsupportedOperationException | IOException ex) {
 				throw new GetCookieApiException(ex);
 			}
