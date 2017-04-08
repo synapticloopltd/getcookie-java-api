@@ -21,6 +21,7 @@ import java.io.IOException;
 import org.apache.commons.io.IOUtils;
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
+import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
@@ -167,7 +168,7 @@ public class GetCookieApiClient {
 
 		HttpGet request = new HttpGet(requestPath);
 
-		HttpResponse response;
+		CloseableHttpResponse response;
 		try {
 			LOGGER.debug("Executing '{}' for url '{}'", httpMethod, requestPath);
 			response = httpclient.execute(request);
@@ -185,6 +186,9 @@ public class GetCookieApiClient {
 					if( response.getEntity() != null ) {
 						EntityUtils.consume(response.getEntity());
 					}
+
+					response.close();
+
 					return parseResponse;
 				} catch (IOException ex) {
 					throw new GetCookieApiException(ex);
