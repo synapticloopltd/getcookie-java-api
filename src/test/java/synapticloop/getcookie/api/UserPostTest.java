@@ -19,7 +19,7 @@ public class UserPostTest {
 
 	@Test
 	public void testGetUserPosts() throws GetCookieApiException {
-		UserPostsResponse userPosts = getCookieApiClient.getUserPosts("bob_the_pirate", 0l);
+		UserPostsResponse userPosts = getCookieApiClient.getUserPosts("9chat", 0l);
 
 		List<Post> posts = userPosts.getData().getUsers().get(0).getPosts();
 
@@ -28,7 +28,7 @@ public class UserPostTest {
 		while(null != nextOffset) {
 			getCookieApiClient = new GetCookieApiClient();
 			nextOffset = userPosts.getData().getUsers().get(0).getNextOffset();
-			userPosts = getCookieApiClient.getUserPosts("bob_the_pirate", nextOffset);
+			userPosts = getCookieApiClient.getUserPosts("9chat", nextOffset);
 		}
 
 	}
