@@ -42,7 +42,7 @@
    - [Dependencies - Gradle](#documentr_heading_13)
    - [Dependencies - Maven](#documentr_heading_14)
    - [Dependencies - Downloads](#documentr_heading_15)
- - [License](#documentr_heading_20)
+ - [License](#documentr_heading_21)
 
 
 
@@ -306,9 +306,9 @@ repositories {
 
 ```
 dependencies {
-	runtime(group: 'synapticloop', name: 'getcookie-java-api', version: '1.0.2', ext: 'jar')
+	runtime(group: 'synapticloop', name: 'getcookie-java-api', version: '1.1.0', ext: 'jar')
 
-	compile(group: 'synapticloop', name: 'getcookie-java-api', version: '1.0.2', ext: 'jar')
+	compile(group: 'synapticloop', name: 'getcookie-java-api', version: '1.1.0', ext: 'jar')
 }
 ```
 
@@ -320,9 +320,9 @@ or, more simply for versions of gradle greater than 2.1
 
 ```
 dependencies {
-	runtime 'synapticloop:getcookie-java-api:1.0.2'
+	runtime 'synapticloop:getcookie-java-api:1.1.0'
 
-	compile 'synapticloop:getcookie-java-api:1.0.2'
+	compile 'synapticloop:getcookie-java-api:1.1.0'
 }
 ```
 
@@ -340,7 +340,7 @@ dependencies {
 <dependency>
 	<groupId>synapticloop</groupId>
 	<artifactId>getcookie-java-api</artifactId>
-	<version>1.0.2</version>
+	<version>1.1.0</version>
 	<type>jar</type>
 </dependency>
 ```
@@ -358,26 +358,29 @@ You will also need to download the following dependencies:
 
 
 
+### cobertura dependencies
+
+  - `net.sourceforge.cobertura:cobertura:2.1.1`: (It may be available on one of: [bintray](https://bintray.com/net.sourceforge.cobertura/maven/cobertura/2.1.1/view#files/net.sourceforge.cobertura/cobertura/2.1.1) [mvn central](http://search.maven.org/#artifactdetails|net.sourceforge.cobertura|cobertura|2.1.1|jar))
+
+
 ### compile dependencies
 
-  - `org.apache.httpcomponents:httpclient:4.5.1`: (It may be available on one of: [bintray](https://bintray.com/org.apache.httpcomponents/maven/httpclient/4.5.1/view#files/org.apache.httpcomponents/httpclient/4.5.1) [mvn central](http://search.maven.org/#artifactdetails|org.apache.httpcomponents|httpclient|4.5.1|jar))
-  - `commons-io:commons-io:2.4`: (It may be available on one of: [bintray](https://bintray.com/commons-io/maven/commons-io/2.4/view#files/commons-io/commons-io/2.4) [mvn central](http://search.maven.org/#artifactdetails|commons-io|commons-io|2.4|jar))
+  - `org.apache.logging.log4j:log4j-slf4j-impl:2.8.2`: (It may be available on one of: [bintray](https://bintray.com/org.apache.logging.log4j/maven/log4j-slf4j-impl/2.8.2/view#files/org.apache.logging.log4j/log4j-slf4j-impl/2.8.2) [mvn central](http://search.maven.org/#artifactdetails|org.apache.logging.log4j|log4j-slf4j-impl|2.8.2|jar))
+  - `org.apache.logging.log4j:log4j-core:2.8.2`: (It may be available on one of: [bintray](https://bintray.com/org.apache.logging.log4j/maven/log4j-core/2.8.2/view#files/org.apache.logging.log4j/log4j-core/2.8.2) [mvn central](http://search.maven.org/#artifactdetails|org.apache.logging.log4j|log4j-core|2.8.2|jar))
+  - `org.apache.httpcomponents:httpclient:4.5.3`: (It may be available on one of: [bintray](https://bintray.com/org.apache.httpcomponents/maven/httpclient/4.5.3/view#files/org.apache.httpcomponents/httpclient/4.5.3) [mvn central](http://search.maven.org/#artifactdetails|org.apache.httpcomponents|httpclient|4.5.3|jar))
+  - `commons-io:commons-io:2.5`: (It may be available on one of: [bintray](https://bintray.com/commons-io/maven/commons-io/2.5/view#files/commons-io/commons-io/2.5) [mvn central](http://search.maven.org/#artifactdetails|commons-io|commons-io|2.5|jar))
   - `com.fasterxml.jackson.core:jackson-databind:2.8.5`: (It may be available on one of: [bintray](https://bintray.com/com.fasterxml.jackson.core/maven/jackson-databind/2.8.5/view#files/com.fasterxml.jackson.core/jackson-databind/2.8.5) [mvn central](http://search.maven.org/#artifactdetails|com.fasterxml.jackson.core|jackson-databind|2.8.5|jar))
   - `org.slf4j:slf4j-api:1.7.13`: (It may be available on one of: [bintray](https://bintray.com/org.slf4j/maven/slf4j-api/1.7.13/view#files/org.slf4j/slf4j-api/1.7.13) [mvn central](http://search.maven.org/#artifactdetails|org.slf4j|slf4j-api|1.7.13|jar))
   - `org.apache.commons:commons-lang3:3.5`: (It may be available on one of: [bintray](https://bintray.com/org.apache.commons/maven/commons-lang3/3.5/view#files/org.apache.commons/commons-lang3/3.5) [mvn central](http://search.maven.org/#artifactdetails|org.apache.commons|commons-lang3|3.5|jar))
-  - `org.apache.logging.log4j:log4j-slf4j-impl:2.7`: (It may be available on one of: [bintray](https://bintray.com/org.apache.logging.log4j/maven/log4j-slf4j-impl/2.7/view#files/org.apache.logging.log4j/log4j-slf4j-impl/2.7) [mvn central](http://search.maven.org/#artifactdetails|org.apache.logging.log4j|log4j-slf4j-impl|2.7|jar))
-  - `org.apache.logging.log4j:log4j-core:2.7`: (It may be available on one of: [bintray](https://bintray.com/org.apache.logging.log4j/maven/log4j-core/2.7/view#files/org.apache.logging.log4j/log4j-core/2.7) [mvn central](http://search.maven.org/#artifactdetails|org.apache.logging.log4j|log4j-core|2.7|jar))
 
 
 ### runtime dependencies
 
-  - `org.apache.httpcomponents:httpclient:4.5.1`: (It may be available on one of: [bintray](https://bintray.com/org.apache.httpcomponents/maven/httpclient/4.5.1/view#files/org.apache.httpcomponents/httpclient/4.5.1) [mvn central](http://search.maven.org/#artifactdetails|org.apache.httpcomponents|httpclient|4.5.1|jar))
-  - `commons-io:commons-io:2.4`: (It may be available on one of: [bintray](https://bintray.com/commons-io/maven/commons-io/2.4/view#files/commons-io/commons-io/2.4) [mvn central](http://search.maven.org/#artifactdetails|commons-io|commons-io|2.4|jar))
+  - `org.apache.httpcomponents:httpclient:4.5.3`: (It may be available on one of: [bintray](https://bintray.com/org.apache.httpcomponents/maven/httpclient/4.5.3/view#files/org.apache.httpcomponents/httpclient/4.5.3) [mvn central](http://search.maven.org/#artifactdetails|org.apache.httpcomponents|httpclient|4.5.3|jar))
+  - `commons-io:commons-io:2.5`: (It may be available on one of: [bintray](https://bintray.com/commons-io/maven/commons-io/2.5/view#files/commons-io/commons-io/2.5) [mvn central](http://search.maven.org/#artifactdetails|commons-io|commons-io|2.5|jar))
   - `com.fasterxml.jackson.core:jackson-databind:2.8.5`: (It may be available on one of: [bintray](https://bintray.com/com.fasterxml.jackson.core/maven/jackson-databind/2.8.5/view#files/com.fasterxml.jackson.core/jackson-databind/2.8.5) [mvn central](http://search.maven.org/#artifactdetails|com.fasterxml.jackson.core|jackson-databind|2.8.5|jar))
   - `org.slf4j:slf4j-api:1.7.13`: (It may be available on one of: [bintray](https://bintray.com/org.slf4j/maven/slf4j-api/1.7.13/view#files/org.slf4j/slf4j-api/1.7.13) [mvn central](http://search.maven.org/#artifactdetails|org.slf4j|slf4j-api|1.7.13|jar))
   - `org.apache.commons:commons-lang3:3.5`: (It may be available on one of: [bintray](https://bintray.com/org.apache.commons/maven/commons-lang3/3.5/view#files/org.apache.commons/commons-lang3/3.5) [mvn central](http://search.maven.org/#artifactdetails|org.apache.commons|commons-lang3|3.5|jar))
-  - `org.apache.logging.log4j:log4j-slf4j-impl:2.7`: (It may be available on one of: [bintray](https://bintray.com/org.apache.logging.log4j/maven/log4j-slf4j-impl/2.7/view#files/org.apache.logging.log4j/log4j-slf4j-impl/2.7) [mvn central](http://search.maven.org/#artifactdetails|org.apache.logging.log4j|log4j-slf4j-impl|2.7|jar))
-  - `org.apache.logging.log4j:log4j-core:2.7`: (It may be available on one of: [bintray](https://bintray.com/org.apache.logging.log4j/maven/log4j-core/2.7/view#files/org.apache.logging.log4j/log4j-core/2.7) [mvn central](http://search.maven.org/#artifactdetails|org.apache.logging.log4j|log4j-core|2.7|jar))
 
 
 ### testCompile dependencies
@@ -393,7 +396,7 @@ You will also need to download the following dependencies:
 
 
 
-<a name="documentr_heading_20"></a>
+<a name="documentr_heading_21"></a>
 
 # License <sup><sup>[top](documentr_top)</sup></sup>
 
